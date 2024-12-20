@@ -1,4 +1,5 @@
 import { MdEditSquare, MdDeleteForever } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Singletasks = () => {
   return (
@@ -14,16 +15,20 @@ const Singletasks = () => {
         </p>
       </div>
       {/* small screen */}
-      <MdEditSquare className=" cursor-pointer basis-1/5 md:hidden" />
+      <Link to="/editTasks/:id">
+        <MdEditSquare className=" cursor-pointer basis-1/5 md:hidden" />
+      </Link>
       <MdDeleteForever
         size={18}
         className=" cursor-pointer basis-1/5 md:hidden"
       />
       {/* Large screen */}
-      <MdEditSquare
-        size={20}
-        className=" cursor-pointer basis-1/5 hidden md:block"
-      />
+      <Link to="/editTasks/:id">
+        <MdEditSquare
+          size={20}
+          className=" cursor-pointer basis-1/5 hidden md:block"
+        />
+      </Link>
       <MdDeleteForever
         size={25}
         className=" cursor-pointer basis-1/5 hidden md:block"
