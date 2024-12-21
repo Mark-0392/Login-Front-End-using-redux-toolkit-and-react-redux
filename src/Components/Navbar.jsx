@@ -3,6 +3,8 @@ import Navlinks from './Navlinks'
 import { CgMenuGridO } from 'react-icons/cg'
 import { CgMenuGridR } from 'react-icons/cg'
 import { LuMenuSquare } from 'react-icons/lu'
+import { IoSettingsOutline } from 'react-icons/io5'
+import { PiSignOutBold } from 'react-icons/pi'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -50,14 +52,20 @@ const Navbar = () => {
         </ul>
       </div>
       {/* UserName and logout button */}
-      <div className="flex items-center gap-2">
-        <p className="text-sm lg:text-lg">Hey,{user.userName}</p>
-        {/* <button type="button" className="">
-          <CgMenuGridR size={30} />
-        </button> */}
-        <button type="button" onClick={handleClick}>
-          Logout
+      <div className="flex items-center gap-3">
+        <p className="text-sm  lg:text-base">
+          Hi!
+          <span className="font-bold lg:text-lg text-red-400">
+            {' '}
+            {user.userName}
+          </span>
+        </p>
+        <button type="button" className="">
+          <IoSettingsOutline size={20} />
         </button>
+        {/* <button type="button" onClick={handleClick}>
+          Logout
+        </button> */}
       </div>
     </nav>
   )
