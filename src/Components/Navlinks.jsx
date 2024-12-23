@@ -24,7 +24,7 @@ const Navlinks = () => {
       {navlinks.map((link) => {
         const { id, url, text } = link
         return (
-          <li key={id}>
+          <li key={id} className="text-sm lg:font-semibold lg:text-lg">
             <NavLink to={url}>{text}</NavLink>
           </li>
         )
