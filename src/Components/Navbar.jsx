@@ -27,9 +27,6 @@ const Navbar = () => {
 
   return (
     <>
-      <aside>
-        <div className="w-[225px] h-[calc(100%-43px)] bg-slate-800 absolute top-[42px]"></div>
-      </aside>
       <nav className="border border-red-300 flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative">
         {/* moving sidebar */}
         {/* Logo and the Name of the Company */}
@@ -66,7 +63,7 @@ const Navbar = () => {
           {isOpen && <DropDownSetting />}
 
           {/* <button type="button" onClick={handleClick}>
-          Logout
+            Logout
           </button> */}
         </div>
       </nav>
