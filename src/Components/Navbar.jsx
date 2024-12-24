@@ -27,19 +27,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center px-2 h-full ">
-        <div className="flex gap-2 ">
-          {/* menu button */}
-          {/* <button type="button" className="lg:hidden">
-          <LuMenuSquare size={22} />
-          </button> */}
-          {/* Logo and the Name of the Company */}
-          <div className="flex gap-2 items-center ">
-            <div>
-              <img src={Logo} alt="logo" className="w-4 h-4 lg:w-8 lg:h-8 " />
-            </div>
-            <h1 className="font-medium text-sm lg:text-xl">Task List</h1>
+      <aside>
+        <div className="w-[225px] h-[calc(100%-43px)] bg-slate-800 absolute top-[42px]"></div>
+      </aside>
+      <nav className="border border-red-300 flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative">
+        {/* moving sidebar */}
+        {/* Logo and the Name of the Company */}
+        <div className="inline-flex gap-1 items-center ">
+          <div>
+            <img src={Logo} alt="logo" className="w-4 h-4 lg:w-8 lg:h-8 " />
           </div>
+          <h1 className="font-medium text-sm lg:text-xl">Task App</h1>
         </div>
 
         {/* Navlinks */}
@@ -76,3 +74,12 @@ const Navbar = () => {
   )
 }
 export default Navbar
+
+{
+  /* menu button */
+}
+{
+  /* <button type="button" className="lg:hidden">
+          <LuMenuSquare size={22} />
+          </button> */
+}
