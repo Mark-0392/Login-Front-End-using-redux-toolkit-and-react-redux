@@ -61,7 +61,7 @@ const links_With_Icon = [
   },
 ]
 
-const Navlinks = () => {
+export const Navlinks = () => {
   return (
     <>
       {navlinks.map((link) => {
@@ -75,10 +75,9 @@ const Navlinks = () => {
     </>
   )
 }
-export default Navlinks
 
 export const Navlink_With_Icon = () => {
-  const { isSelectedText, isOpen } = useSelector((state) => state.setting)
+  const { isSelectedText } = useSelector((state) => state.setting)
   const dispatch = useDispatch()
   return (
     <div>
@@ -90,17 +89,18 @@ export const Navlink_With_Icon = () => {
               key={id}
               onClick={() => {
                 dispatch(selectText(text))
+                dispatch(closeNav())
               }}
             >
               <NavLink
                 to={url}
-                className={`flex gap-x-4 w-36 items-center text-sm text-white font-semibold px-2 capitalize h-12  rounded-l-md rounded-r-full  ${
+                className={`flex gap-x-2 w-10/12 items-center text-sm text-white font-semibold px-2 capitalize h-12 rounded-r-full  transition-all ease-in-out duration-500 ${
                   isSelectedText === text
-                    ? 'bg-red-500 text-white ml-4 transition-all  duration-500'
+                    ? 'bg-red-500 text-white ml-2'
                     : 'text-white'
                 }`}
               >
-                <span className="text-white">{icon}</span>
+                <span className={`text-white pl-1 `}>{icon}</span>
                 {text}
               </NavLink>
             </li>
@@ -108,7 +108,7 @@ export const Navlink_With_Icon = () => {
         })}
         <button
           type="button"
-          className="inline-flex gap-2 items-center px-[10px] py-2 hover:bg-red-500 hover:text-white hover:rounded-sm duration-500 text-sm"
+          className="inline-flex gap-2 items-center px-[10px] py-2 hover:bg-red-500 hover:text-white hover:rounded-sm transition-all duration-700 text-sm"
         >
           <PiSignOutBold size={22} />
           Sign Out

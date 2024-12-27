@@ -1,5 +1,5 @@
 import Logo from '../assets/Landing Page Logo/noysi.svg'
-import Navlinks from './Navlinks'
+import { Navlinks } from './Navlinks'
 
 import { LuMenuSquare } from 'react-icons/lu'
 import { IoSettingsOutline } from 'react-icons/io5'
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="border border-red-300 flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative">
+      <nav className=" flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative">
         {/* moving sidebar */}
         {/* Logo and the Name of the Company */}
         <div className="inline-flex gap-1 items-center ">
@@ -55,7 +55,7 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="relative"
+            className="relative hidden lg:block"
             onClick={() => dispatch(closeSetting())}
           >
             <IoSettingsOutline size={25} />
