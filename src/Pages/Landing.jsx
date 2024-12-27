@@ -5,8 +5,8 @@ import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import { Form } from 'react-router-dom'
 const Landing = () => {
   return (
-    <div className="w-11/12 h-[calc(100%-41px)] max-w-xl mx-auto flex flex-col justify-center items-center">
-      <div className=" w-full ">
+    <div className="  w-full h-[calc(100%-41px)]  mx-auto flex flex-col items-center justify-center  lg:bg-gradient-to-r from-cyan-500 to-blue-500">
+      <div className="max-w-xl mx-auto w-full py-4">
         {/* <h2>hello there</h2> */}
         <h2 className="text-center text-base  font-medium mb-2 ">Add Tasks</h2>
         <Form method="post">

@@ -1,17 +1,22 @@
 import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
-
+import img1 from '../../src/assets//icons8-newsletter.gif'
 const NewsLetter = () => {
   return (
-    <div className="grid place-items-center w-full px-2  mx-auto h-[calc(100%-36px)] lg:h-[calc(100%-56px)] lg:bg-white bg-slate-500  ">
-      <div className=" flex flex-col gap-y-4 text-white lg:text-black  md:border-4 md:border-double md:border-blue-500 px-2 lg:px-8 py-4 lg:py-8 hover:shadow-lg hover:shadow-blue-300 rounded-md ">
-        <h2 className="text-center font-bold text-base lg:text-2xl capitalize">
-          We will be glad if you can join us for better future
-        </h2>
-        <p className="capitalize font-serif text-sm lg:text-xl">
-          Please subscribe to our newsletter for more exiting offers and to know
-          more about us.
-        </p>
+    <div className="grid place-items-center w-full px-2  mx-auto h-[calc(100%-36px)] lg:h-[calc(100%-56px)] max-lg:bg-newsLetter bg-center bg-cover bg-no-repeat lg:bg-slate-800 ">
+      <div className=" flex flex-col gap-y-4 lg:gap-y-8  flex-1 text-white lg:text-black  md:border-4 md:border-double md:border-violet-800 px-2 lg:px-8 py-4 lg:py-8 hover:shadow-md hover:shadow-violet-700 lg:hover:shadow-lg lg:hover:shadow-red-400 rounded-md lg:bg-white md:mt-4 lg:mt-0">
+        <div className="mx-auto hidden lg:block">
+          <img src={img1} alt="" />
+        </div>
+        <div className="flex flex-col space-y-3">
+          <h2 className=" lg:text-center font-bold text-base lg:text-2xl capitalize hidden lg:block">
+            We will be glad if you can join us for better future
+          </h2>
+          <p className="capitalize font-light lg:font-serif text-md lg:text-xl text-center ml-4 lg:ml-0 md:text-lg ">
+            Please subscribe to our newsletter for more exiting offers and to
+            know more about us.
+          </p>
+        </div>
         <div className="flex gap-x-2 flex-1 gap-y-4 md:gap-y-0 md:flex-row flex-col ">
           <div className="basis-3/4">
             <CommonFormLayout
@@ -34,3 +39,7 @@ const NewsLetter = () => {
   )
 }
 export default NewsLetter
+
+{
+  /* <a target="_blank" href="https://icons8.com/icon/lFMUfgTJoAxH/email-open">Newsletter</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */
+}

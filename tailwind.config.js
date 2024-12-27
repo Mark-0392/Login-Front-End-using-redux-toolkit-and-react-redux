@@ -7,6 +7,8 @@ export default {
         sky: "url('/src/assets/Register Page Images/Mobile background Image/image2.webp')",
         building:
           "url('/src/assets/Register Page Images/Mobile background Image/image3.webp')",
+        newsLetter: "url('/src/assets/Background Images/img1.jpg')",
+        news1: "url('/src/assets/Background Images/img2.png')",
       },
     },
   },
