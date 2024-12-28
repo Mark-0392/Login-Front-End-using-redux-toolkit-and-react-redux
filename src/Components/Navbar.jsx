@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className=" flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative">
+      <nav className=" flex justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative  bg-gradient-to-tr from-indigo-200 ">
         {/* moving sidebar */}
         {/* Logo and the Name of the Company */}
         <div className="inline-flex gap-1 items-center ">

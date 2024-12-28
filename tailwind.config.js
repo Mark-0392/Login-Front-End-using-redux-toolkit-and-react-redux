@@ -9,6 +9,8 @@ export default {
           "url('/src/assets/Register Page Images/Mobile background Image/image3.webp')",
         newsLetter: "url('/src/assets/Background Images/img1.jpg')",
         news1: "url('/src/assets/Background Images/img2.png')",
+        landing: "url('/src/assets/landing.jpg')",
+        navbar: "url('/src/assets/navbar.jpg')",
       },
     },
   },

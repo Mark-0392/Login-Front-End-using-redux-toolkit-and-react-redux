@@ -1,4 +1,5 @@
 import { MdEditSquare, MdDeleteForever } from 'react-icons/md'
+import { GrView } from 'react-icons/gr'
 import { Link } from 'react-router-dom'
 
 const Singletasks = () => {
@@ -15,24 +16,33 @@ const Singletasks = () => {
         </p>
       </div>
       {/* small screen */}
-      <Link to="/editTasks/:id">
-        <MdEditSquare className=" cursor-pointer basis-1/5 md:hidden" />
-      </Link>
-      <MdDeleteForever
-        size={18}
-        className=" cursor-pointer basis-1/5 md:hidden"
-      />
+      <div
+        className="inline-flex space-x-4 justify-end
+       items-center basis-2/5 cursor-pointer md:hidden"
+      >
+        <Link to="singleTask/123">
+          <GrView size={18} className="" />
+        </Link>
+        <Link to="editTasks/:id">
+          <MdEditSquare className="   md:hidden" />
+        </Link>
+        <MdDeleteForever size={18} className="  md:hidden" />
+      </div>
       {/* Large screen */}
-      <Link to="/editTasks/:id">
-        <MdEditSquare
-          size={20}
-          className=" cursor-pointer basis-1/5 hidden md:block"
-        />
-      </Link>
-      <MdDeleteForever
-        size={25}
-        className=" cursor-pointer basis-1/5 hidden md:block"
-      />
+      <div
+        className="inline-flex space-x-2 justify-between
+       items-center basis-2/5 cursor-pointer md:block hidden"
+      >
+        <Link to="singleTask/123">
+          <GrView size={20} className="hidden md:block " />
+        </Link>
+
+        <Link to="editTasks/:id">
+          <MdEditSquare size={20} className="hidden md:block " />
+        </Link>
+
+        <MdDeleteForever size={25} className="hidden md:block" />
+      </div>
     </div>
   )
 }
