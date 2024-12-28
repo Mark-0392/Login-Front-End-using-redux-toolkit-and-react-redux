@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .embla {
-    overflow: hidden;
+@layer base {
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 900;
+    src: url('/Roboto Fonts/Roboto-Black.woff2') format('woff2');
   }
-  .embla__container {
-    display: flex;
+  @font-face {
+    font-family: 'RobotoI';
+    font-weight: 700;
+    font-style: italic;
+    src: url('/Roboto Fonts/Roboto-BoldItalic.woff2') format('woff2');
   }
-  .embla__slide {
-    flex: 0 0 100%;
-    min-width: 0;
+  @font-face {
+    font-family: 'Ysabeau SC';
+    font-weight: 900;
+    /* font-style: normal; */
+    src: url('/Ysabeau Fonts/YsabeauSC-Black.woff') format('woff');
   }
-} */
-
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+  @font-face {
+    font-family: 'YsabeauR';
+    font-weight: 400;
+    /* font-style: normal; */
+    src: url('/Ysabeau Fonts/YsabeauSC-Regular.woff') format('woff');
+  }
+  h1 {
+    font-family: 'YsabeauR', serif;
+  }
+  h2 {
+    font-family: 'Ysabeau SC', serif;
+  }
+  p {
+    font-family: 'RobotoI', serif;
+  }
 }

@@ -1,6 +1,6 @@
 const CreateTaskForm = () => {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:gap-0 px-2 border py-4">
+    <div className="flex flex-col gap-4 sm:flex-row sm:gap-0 px-2 border rounded-sm py-4">
       <input
         type="text"
         name="task"

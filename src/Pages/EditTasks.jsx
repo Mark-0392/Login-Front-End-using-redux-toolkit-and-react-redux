@@ -4,8 +4,8 @@ import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 
 const EditTasks = () => {
   return (
-    <div className="min-h-screen grid place-items-center bg-slate-800 lg:bg-white">
-      <Form className="w-11/12 max-w-xl grid gap-y-4">
+    <div className="max-lg:h-[calc(100%-36px)] lg:h-[calc(100%-56px)]  grid place-items-center bg-slate-800 lg:bg-white">
+      <Form className="w-11/12 max-w-xl grid gap-y-4 max-sm:mt-12   ">
         <h1 className="text-lg font-semibold text-white lg:text-black lg:text-xl lg:text-center">
           Edit Task
         </h1>

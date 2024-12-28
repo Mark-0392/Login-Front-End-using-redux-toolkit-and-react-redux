@@ -16,32 +16,21 @@ const Singletasks = () => {
         </p>
       </div>
       {/* small screen */}
-      <div
-        className="inline-flex space-x-4 justify-end
-       items-center basis-2/5 cursor-pointer md:hidden"
-      >
-        <Link to="singleTask/123">
-          <GrView size={18} className="" />
-        </Link>
-        <Link to="editTasks/:id">
-          <MdEditSquare className="   md:hidden" />
-        </Link>
-        <MdDeleteForever size={18} className="  md:hidden" />
-      </div>
+
       {/* Large screen */}
       <div
         className="inline-flex space-x-2 justify-between
-       items-center basis-2/5 cursor-pointer md:block hidden"
+       items-center basis-2/5 cursor-pointer mr-2"
       >
         <Link to="singleTask/123">
-          <GrView size={20} className="hidden md:block " />
+          <GrView className="size-4 lg:size-6 hover:text" />
         </Link>
 
         <Link to="editTasks/:id">
-          <MdEditSquare size={20} className="hidden md:block " />
+          <MdEditSquare className="size-4 lg:size-6 " />
         </Link>
 
-        <MdDeleteForever size={25} className="hidden md:block" />
+        <MdDeleteForever className="size-5 lg:size-7" />
       </div>
     </div>
   )

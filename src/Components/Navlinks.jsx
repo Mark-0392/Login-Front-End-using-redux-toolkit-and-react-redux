@@ -67,7 +67,10 @@ export const Navlinks = () => {
       {navlinks.map((link) => {
         const { id, url, text } = link
         return (
-          <li key={id} className="text-sm lg:font-semibold lg:text-lg">
+          <li
+            key={id}
+            className="text-sm lg:font-light lg:text-lg hover:bg-sky-400 rounded-md px-2"
+          >
             <NavLink to={url}>{text}</NavLink>
           </li>
         )
