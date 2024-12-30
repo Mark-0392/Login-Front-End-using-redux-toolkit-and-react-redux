@@ -3,11 +3,12 @@ import { FaHome, FaEnvelopeOpenText, FaUserEdit } from 'react-icons/fa'
 import { FcAbout } from 'react-icons/fc'
 import { PiSignOutBold, PiPasswordBold } from 'react-icons/pi'
 import { BsInfoCircleFill } from 'react-icons/bs'
-import { useState } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import {
   selectText,
   closeNav,
+  Active,
   closeSetting,
 } from '../../Features/Settings/settingSlice'
 const navlinks = [
@@ -62,6 +63,8 @@ const links_With_Icon = [
 ]
 
 export const Navlinks = () => {
+  const { isActive } = useSelector((state) => state.setting)
+  const dispatch = useDispatch()
   return (
     <>
       {navlinks.map((link) => {
@@ -69,9 +72,16 @@ export const Navlinks = () => {
         return (
           <li
             key={id}
-            className="text-sm lg:font-light lg:text-lg hover:bg-sky-400 rounded-md px-2"
+            className={`text-sm lg:font-light lg:text-lg  rounded-md px-2 hover:bg-emerald-300 hover:translate-y-1 duration-500 ease-in-out cursor-pointer ${
+              isActive === text
+                ? 'bg-blue-500 rounded-md text-white transition-all ease-in  duration-500 '
+                : 'bg-none'
+            }`}
+            onClick={() => dispatch(Active(text))}
           >
-            <NavLink to={url}>{text}</NavLink>
+            <NavLink to={url} className={``}>
+              {text}
+            </NavLink>
           </li>
         )
       })}

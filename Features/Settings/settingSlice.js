@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { act } from 'react'
 
 const initialState = {
   isOpen: false,
   isSelectedText: 'Home',
   isNavOpen: false,
+  isActive: 'Home',
 }
 
 const SettingSlice = createSlice({
@@ -12,12 +14,12 @@ const SettingSlice = createSlice({
   reducers: {
     closeSetting: (state) => {
       state.isOpen = !state.isOpen
-      console.log(state)
     },
     selectText: (state, action) => {
-      console.log(action.payload)
-
       state.isSelectedText = action.payload
+    },
+    Active: (state, action) => {
+      state.isActive = action.payload
     },
     closeNav: (state) => {
       state.isNavOpen = !state.isNavOpen
@@ -25,6 +27,7 @@ const SettingSlice = createSlice({
   },
 })
 
-export const { closeSetting, selectText, closeNav } = SettingSlice.actions
+export const { closeSetting, selectText, closeNav, Active } =
+  SettingSlice.actions
 
 export default SettingSlice.reducer
