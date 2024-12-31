@@ -5,6 +5,7 @@ import { Form, Link, redirect } from 'react-router-dom'
 import { BaseURL } from '../../Utils/BaseUrl'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../Features/Users/userSlice'
+import axios from 'axios'
 
 export const action =
   (store) =>
@@ -13,7 +14,7 @@ export const action =
     const data = Object.fromEntries(formData)
     // const dispatch = useDispatch()
     try {
-      const response = await BaseURL.post('api/v1/auth/login', data)
+      const response = await axios.post('/api/v1/auth/login', data)
       store.dispatch(loginUser(response.data))
 
       toast.success('You have successfully logged in')
@@ -25,8 +26,21 @@ export const action =
       toast.error(error_Message)
       return null
     }
+    // try {
+    //   const response = await BaseURL.post('api/v1/auth/login', data)
+    //   store.dispatch(loginUser(response.data))
 
-    return 'something'
+    //   toast.success('You have successfully logged in')
+    //   return redirect('/dashboard')
+    // } catch (error) {
+    //   console.log(error)
+
+    //   const error_Message = error.response.data.message
+    //   toast.error(error_Message)
+    //   return null
+    // }
+
+    // return 'something'
   }
 
 function LoginPage() {

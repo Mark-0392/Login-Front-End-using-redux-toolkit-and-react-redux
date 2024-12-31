@@ -23,7 +23,10 @@ import { ErrorElement } from './Components'
 // importing actions
 import { action as registerAction } from './Pages/RegisterPage'
 import { action as loginAction } from './Pages/LoginPage'
+import { action as createTaskAction } from './Pages/Landing'
 
+// importing loaders
+import { loader as getAllTasksLoader } from './Pages/Landing'
 // import store.js
 import { store } from '../store'
 
@@ -70,6 +73,8 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
+        action: createTaskAction,
+        loader: getAllTasksLoader,
       },
       {
         path: 'about',

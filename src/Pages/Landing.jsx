@@ -4,6 +4,33 @@ import Singletasks from '../Components/Singletasks'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import { Form } from 'react-router-dom'
 import landing from '../../src/assets/landing.jpg'
+import axios from 'axios'
+import { BaseURL } from '../../Utils/BaseUrl'
+import { toast } from 'react-toastify'
+
+export const loader = async () => {
+  const response = await axios.get('/api/v1/tasks/')
+  const getAlltasks = response.data
+  console.log(getAlltasks)
+  return getAlltasks
+}
+
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+
+  try {
+    const response = await axios.post('/api/v1/tasks/', data)
+    console.log(response.data)
+    toast.success('task created successfully')
+    return response.data
+  } catch (error) {
+    const errorMsg = error.response.data.msg
+    toast.error(errorMsg)
+    return null
+  }
+}
+
 const Landing = () => {
   return (
     <div className="  w-full max-sm:h-[calc(100%-36px)] md:h-[calc(100%-48px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
@@ -13,7 +40,7 @@ const Landing = () => {
           Add Tasks
         </h2>
         <Form method="post">
-          <CreateTaskForm />
+          <CreateTaskForm type="text" name="name" />
         </Form>
 
         <div className="mt-4 max-w-xl mx-auto ">
