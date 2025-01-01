@@ -27,6 +27,7 @@ import { action as createTaskAction } from './Pages/Landing'
 
 // importing loaders
 import { loader as getAllTasksLoader } from './Pages/Landing'
+import { loader as getSingleTaskLoader } from './Pages/SingleTask'
 // import store.js
 import { store } from '../store'
 
@@ -90,6 +91,7 @@ const router = createBrowserRouter([
         path: 'singleTask/:id',
         element: <Single_Task />,
         errorElement: <Error />,
+        loader: getSingleTaskLoader,
       },
       {
         path: 'editTasks/:id',

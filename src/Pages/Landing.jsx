@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 export const loader = async () => {
   const response = await axios.get('/api/v1/tasks/')
   const getAlltasks = response.data
-  console.log(getAlltasks)
+
   return getAlltasks
 }
 
@@ -33,7 +33,7 @@ export const action = async ({ request }) => {
 
 const Landing = () => {
   return (
-    <div className="  w-full max-sm:h-[calc(100%-36px)] md:h-[calc(100%-48px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
+    <div className="  w-full sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
       <div className="max-w-xl mx-auto w-full py-4  ">
         {/* <h2>hello there</h2> */}
         <h2 className="text-center max-sm:text-lg  mb-2 lg:text-3xl ">

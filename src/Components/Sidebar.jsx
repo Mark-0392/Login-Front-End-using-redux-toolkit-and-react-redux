@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={` h-[calc(100%-42px)] w-[225px]  bg-slate-800 absolute top-[42px] flex flex-col transition-all ease-out duration-700 lg:hidden  ${
+        className={` h-[calc(100%-40px)]  w-[225px]  bg-slate-800 absolute top-[40px] md:top-[44px] flex flex-col transition-all ease-out duration-700 lg:hidden z-50  ${
           isNavOpen ? ' translate-x-0' : '-translate-x-full'
           // isNavOpen ? ' w-[200px]' : 'w-0'
         } `}

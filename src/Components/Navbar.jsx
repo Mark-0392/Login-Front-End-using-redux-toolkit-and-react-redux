@@ -27,9 +27,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="md:h-12">
+      <div className="">
         <nav className=" flex h-full justify-between items-center px-2 py-2 lg:py-3 lg:px-3 relative  bg-gradient-to-tr from-indigo-200 ">
-          {/* moving sidebar */}
           {/* Logo and the Name of the Company */}
           <div className="inline-flex gap-1 items-center space-x-1 ">
             <div>
@@ -44,6 +43,7 @@ const Navbar = () => {
               <Navlinks />
             </ul>
           </div>
+
           {/* UserName and logout button */}
           <div className="flex items-center gap-3">
             <p className="text-sm  lg:text-base">
