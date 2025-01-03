@@ -1,18 +1,42 @@
-import { Form } from 'react-router-dom'
+import { Form, redirect, useParams } from 'react-router-dom'
 import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+  const url = request.url
+  const value = url.split('/editTasks/')[1]
+  console.log(value)
+
+  try {
+    const response = await axios.patch(`/api/v1/tasks/${value}`, data)
+    const updatedTask = response.data.tasks
+    console.log(updatedTask)
+    toast.success(response.data.msg)
+    return redirect('/dashboard')
+  } catch (error) {
+    const errorMsg = error?.response?.data?.msg
+    console.log(errorMsg)
+  }
+}
 
 const EditTasks = () => {
   return (
-    <div className="max-lg:h-[calc(100%-36px)] lg:h-[calc(100%-56px)]  grid place-items-center bg-slate-800 lg:bg-white">
-      <Form className="w-11/12 max-w-xl grid gap-y-4 max-sm:mt-12   ">
-        <h1 className="text-lg font-semibold text-white lg:text-black lg:text-xl lg:text-center">
+    <div className="max-lg:h-[calc(100%-36px)] lg:h-[calc(100%-56px)]  grid place-items-center bg-slate-800 lg:bg-white border">
+      <Form
+        className="w-11/12 max-w-xl grid gap-y-4 max-sm:mt-12  border rounded-md  px-2 py-4 hover:shadow-md "
+        method="patch"
+      >
+        <h1 className="text-lg font-semibold text-white lg:text-black lg:text-xl text-center">
           Edit Task
         </h1>
-        <div className="flex gap-1 justify-center items-center">
+        <div className="grid lg:grid-cols-4 items-center space-y-1">
           <label
             htmlFor="task"
-            className="block basis-1/3 text-sm md:text-lg font-medium  text-white mb-1 px-2 lg:text-black"
+            className="block lg:col-span-1 text-sm md:text-lg font-serif  text-white mb-1 px-2 lg:text-black"
           >
             Task
           </label>
@@ -20,21 +44,15 @@ const EditTasks = () => {
             type="text"
             id="task"
             placeholder="Enter your task here"
-            name="task"
-            className="w-full h-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-base text-gray-500 p-2"
+            name="name"
+            className="w-full lg:col-span-3 h-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-base text-gray-500 p-2"
           />
         </div>
-        {/* <CommonFormLayout
-          type="text"
-          name="name"
-          defaultValue=""
-          placeholder=""
-          label="Task"
-        /> */}
-        <div className="flex items-center gap-x-4 ">
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 items-center">
           <label
             htmlFor="isCompleted"
-            className="block basis-1/4 text-sm md:text-lg font-medium  text-white mb-1 px-2 lg:text-black"
+            className="block lg:col-span-1 text-sm md:text-lg font-serif  text-white px-2 lg:text-black"
           >
             Task Completed
           </label>
@@ -42,7 +60,7 @@ const EditTasks = () => {
             type="checkbox"
             id="isCompleted"
             name="completed"
-            className=" h-4 w-4 rounded-md border-gray-500 -ml-2"
+            className=" h-4 w-4 rounded-md border-gray-500 lg:ml-1 lg:col-span-3"
           />
         </div>
         <div className="">

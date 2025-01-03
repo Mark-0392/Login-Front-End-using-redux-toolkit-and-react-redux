@@ -1,11 +1,32 @@
-import { Form } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { loginUser } from '../../Features/Users/userSlice'
+
+export const action =
+  (store) =>
+  async ({ request }) => {
+    const formData = await request.formData()
+    const data = Object.fromEntries(formData)
+
+    // try {
+    //   const response = await axios.patch('/api/v1/users/updateUser', data)
+
+    // } catch (error) {
+    //   const errorMsg = error?.response?.data?.msg
+    //   console.log(error)
+    // }
+  }
 
 const UpdateUser = () => {
   return (
     <div className="min-h-screen grid place-items-center bg-slate-800 lg:bg-white">
-      <Form className=" w-11/12 max-w-[500px] grid grid-flow-row gap-y-5 rounded-lg  px-4 lg:mx-0 hover:shadow-lg hover:shadow-purple-400 lg:hover:shadow-lg lg:hover:shadow-fuchsia-400/50  duration-700">
+      <Form
+        className=" w-11/12 max-w-[500px] grid grid-flow-row gap-y-5 rounded-lg  px-4 lg:mx-0 hover:shadow-lg hover:shadow-purple-400 lg:hover:shadow-lg lg:hover:shadow-fuchsia-400/50  duration-700"
+        method="PATCH"
+      >
         <h1 className="text-base font-semibold text-white lg:text-black lg:text-lg text-center  items-center">
           Update Your Email and Name
         </h1>

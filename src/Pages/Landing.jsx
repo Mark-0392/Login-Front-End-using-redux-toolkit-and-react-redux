@@ -7,7 +7,9 @@ import landing from '../../src/assets/landing.jpg'
 import axios from 'axios'
 import { BaseURL } from '../../Utils/BaseUrl'
 import { toast } from 'react-toastify'
-
+import { getUserDetails } from '../../Features/Users/userSlice'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 export const loader = async () => {
   const response = await axios.get('/api/v1/tasks/')
   const getAlltasks = response.data
@@ -32,6 +34,10 @@ export const action = async ({ request }) => {
 }
 
 const Landing = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getUserDetails())
+  }, [])
   return (
     <div className="  w-full sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
       <div className="max-w-xl mx-auto w-full py-4  ">

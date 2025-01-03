@@ -4,6 +4,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(advancedFormat)
+
 export const loader = async ({ params }) => {
   // const response = await axios.get('/api/v1/tasks/' + params.id)
   const response = await axios.get(`/api/v1/tasks/${params.id}`)

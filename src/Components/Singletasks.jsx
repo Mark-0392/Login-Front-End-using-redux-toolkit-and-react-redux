@@ -35,7 +35,7 @@ const Singletasks = () => {
                 <GrView className="size-4 lg:size-6 hover:text" />
               </Link>
 
-              <Link to="editTasks/:id">
+              <Link to={`editTasks/${task._id}`}>
                 <MdEditSquare className="size-4 lg:size-6 " />
               </Link>
 

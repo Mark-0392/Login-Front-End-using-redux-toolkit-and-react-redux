@@ -23,7 +23,9 @@ import { ErrorElement } from './Components'
 // importing actions
 import { action as registerAction } from './Pages/RegisterPage'
 import { action as loginAction } from './Pages/LoginPage'
+import { action as updateUserAction } from './Pages/UpdateUser'
 import { action as createTaskAction } from './Pages/Landing'
+import { action as editTaskAction } from './Pages/EditTasks'
 
 // importing loaders
 import { loader as getAllTasksLoader } from './Pages/Landing'
@@ -59,6 +61,7 @@ const router = createBrowserRouter([
     path: '/updateUserDetails',
     element: <UpdateUser />,
     errorElement: <Error />,
+    action: updateUserAction(store),
   },
   {
     path: '/updateUserPassword',
@@ -97,6 +100,7 @@ const router = createBrowserRouter([
         path: 'editTasks/:id',
         element: <EditTasks />,
         errorElement: <Error />,
+        action: editTaskAction,
       },
     ],
   },
