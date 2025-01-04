@@ -23,7 +23,10 @@ import { ErrorElement } from './Components'
 // importing actions
 import { action as registerAction } from './Pages/RegisterPage'
 import { action as loginAction } from './Pages/LoginPage'
+import { action as forgotPasswordAction } from './Pages/ForgotPassword'
+import { action as resetPasswordAction } from './Pages/ResetPassword'
 import { action as updateUserAction } from './Pages/UpdateUser'
+import { action as updateUserPasswordAction } from './Pages/UpdateUserPassword'
 import { action as createTaskAction } from './Pages/Landing'
 import { action as editTaskAction } from './Pages/EditTasks'
 
@@ -51,22 +54,25 @@ const router = createBrowserRouter([
     path: '/forgotPassword',
     element: <ForgotPassword />,
     errorElement: <Error />,
+    action: forgotPasswordAction,
   },
   {
     path: '/resetPassword',
     element: <ResetPassword />,
     errorElement: <Error />,
+    action: resetPasswordAction,
   },
   {
     path: '/updateUserDetails',
     element: <UpdateUser />,
     errorElement: <Error />,
-    action: updateUserAction(store),
+    action: updateUserAction,
   },
   {
     path: '/updateUserPassword',
     element: <UpdateUserPassword />,
     errorElement: <Error />,
+    action: updateUserPasswordAction,
   },
   {
     path: '/dashboard',

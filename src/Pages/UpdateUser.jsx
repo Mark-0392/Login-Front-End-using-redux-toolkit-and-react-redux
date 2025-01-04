@@ -5,27 +5,33 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { loginUser } from '../../Features/Users/userSlice'
 
-export const action =
-  (store) =>
-  async ({ request }) => {
-    const formData = await request.formData()
-    const data = Object.fromEntries(formData)
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
 
-    // try {
-    //   const response = await axios.patch('/api/v1/users/updateUser', data)
+  try {
+    const response = await axios.patch('/api/v1/users/userDetailsUpdate', data)
+    console.log(response)
 
-    // } catch (error) {
-    //   const errorMsg = error?.response?.data?.msg
-    //   console.log(error)
-    // }
+    toast.success('Your details updated successfully')
+    toast.success(
+      'Please login with your new updated email address to continue'
+    )
+    return redirect('/login')
+  } catch (error) {
+    const errorMsg = error?.response?.data?.msg
+    console.log(error)
+    console.log(errorMsg)
+    return null
   }
+}
 
 const UpdateUser = () => {
   return (
     <div className="min-h-screen grid place-items-center bg-slate-800 lg:bg-white">
       <Form
+        method="patch"
         className=" w-11/12 max-w-[500px] grid grid-flow-row gap-y-5 rounded-lg  px-4 lg:mx-0 hover:shadow-lg hover:shadow-purple-400 lg:hover:shadow-lg lg:hover:shadow-fuchsia-400/50  duration-700"
-        method="PATCH"
       >
         <h1 className="text-base font-semibold text-white lg:text-black lg:text-lg text-center  items-center">
           Update Your Email and Name
@@ -35,16 +41,14 @@ const UpdateUser = () => {
             <CommonFormLayout
               type="email"
               name="email"
-              defaultValue=""
               placeholder="enter your email address here"
               label="Email"
             />
           </div>
           <div>
             <CommonFormLayout
-              type="name"
+              type="text"
               name="name"
-              defaultValue=""
               placeholder="enter your name here"
               label="Name"
             />

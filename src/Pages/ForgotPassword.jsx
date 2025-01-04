@@ -1,11 +1,28 @@
-import { Form } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+
+  try {
+    const response = await axios.post('api/v1/auth/forgot-password', data)
+
+    return redirect(response.data)
+  } catch (error) {
+    const errorMsg = error?.response?.data?.msg
+    toast.error(errorMsg)
+    return null
+  }
+}
 
 const ForgotPassword = () => {
   return (
     <div className="grid place-items-center min-h-screen bg-slate-900 lg:bg-white ">
-      <Form method="post" className="">
+      <Form method="POST" className="">
         <h2 className="mb-2 lg:mb-4 text-sm font-semibold text-white lg:text-black lg:text-lg text-center">
           If you want to reset your password,
           <span> Please enter your email address</span>

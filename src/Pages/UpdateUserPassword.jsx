@@ -1,11 +1,31 @@
-import { Form } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+
+  try {
+    const response = await axios.patch('/api/v1/users/updateUserPassword', data)
+
+    toast.success(response.data.message)
+    toast.success('Please login with the new password to continue')
+    return redirect('/login')
+  } catch (error) {
+    const errorMsg = error?.response?.data?.msg
+    console.log(errorMsg)
+
+    return null
+  }
+}
 
 const ResetPassword = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-slate-800 lg:bg-white">
       <Form
-        method="post"
+        method="PATCH"
         className="px-2 max-w-xl flex-1 flex flex-col border gap-y-4 py-4"
       >
         <h2 className="text-base font-semibold text-white lg:text-black lg:text-lg text-center">
