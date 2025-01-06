@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import { getUserDetails } from '../../Features/Users/userSlice'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+
 export const loader = async () => {
   const response = await axios.get('/api/v1/tasks/')
   const getAlltasks = response.data

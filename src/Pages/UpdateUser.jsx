@@ -13,7 +13,8 @@ export const action = async ({ request }) => {
     const response = await axios.patch('/api/v1/users/userDetailsUpdate', data)
     console.log(response)
 
-    toast.success('Your details updated successfully')
+    // toast.success('Your details updated successfully')
+    toast.success(response.data.msg)
     toast.success(
       'Please login with your new updated email address to continue'
     )
