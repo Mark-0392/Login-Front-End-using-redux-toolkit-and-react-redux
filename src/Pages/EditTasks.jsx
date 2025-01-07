@@ -4,9 +4,35 @@ import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+export const loader = async ({ params }) => {
+  try {
+    const response = await axios.get(`/api/v1/tasks/${params.id}`)
+    console.log(response)
+    const SingleTask = response.data
+    console.log(SingleTask)
+    return SingleTask
+  } catch (error) {
+    const errorMsg = error?.response?.data?.msg
+    console.log(errorMsg)
+    return null
+  }
+}
+
 export const action = async ({ request }) => {
   const formData = await request.formData()
-  const data = Object.fromEntries(formData)
+
+  const name = await formData.get('task')
+  let completed = await formData.get('completed')
+  if (completed === 'on') {
+    completed = true
+  } else {
+    completed = false
+  }
+  const data = {
+    name,
+    completed,
+  }
+
   const url = request.url
   const value = url.split('/editTasks/')[1]
   console.log(value)
@@ -24,6 +50,9 @@ export const action = async ({ request }) => {
 }
 
 const EditTasks = () => {
+  const { task } = useLoaderData()
+  console.log(task)
+
   return (
     <div className="max-lg:h-[calc(100%-36px)] lg:h-[calc(100%-56px)]  grid place-items-center bg-slate-800 lg:bg-white border">
       <Form
@@ -43,8 +72,8 @@ const EditTasks = () => {
           <input
             type="text"
             id="task"
-            placeholder="Enter your task here"
-            name="name"
+            defaultValue={task.name}
+            name="task"
             className="w-full lg:col-span-3 h-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-base text-gray-500 p-2"
           />
         </div>
@@ -60,6 +89,7 @@ const EditTasks = () => {
             type="checkbox"
             id="isCompleted"
             name="completed"
+            defaultChecked={task.completed}
             className=" h-4 w-4 rounded-md border-gray-500 lg:ml-1 lg:col-span-3"
           />
         </div>

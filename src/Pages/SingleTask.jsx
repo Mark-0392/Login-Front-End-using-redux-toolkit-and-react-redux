@@ -18,9 +18,8 @@ const Single_Task = () => {
   console.log(task)
 
   const { name, completed, _id: id, createdAt } = task
-  console.log(createdAt)
+
   const date = dayjs(createdAt).format('@ hh:mm a - on MMM Do, YYYY')
-  console.log(date)
 
   // function getDate() {
   //   const today = new Date()

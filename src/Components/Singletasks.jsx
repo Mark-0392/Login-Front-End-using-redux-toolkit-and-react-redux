@@ -1,10 +1,30 @@
 import { MdEditSquare, MdDeleteForever } from 'react-icons/md'
 import { GrView } from 'react-icons/gr'
 import { Link, useLoaderData } from 'react-router-dom'
+import { useState } from 'react'
 
-const Singletasks = () => {
+const ShowTasks = () => {
   const { tasks } = useLoaderData()
   console.log(tasks)
+
+  // const [ischecked, setIsChecked] = useState(false)
+  // console.log(ischecked)
+
+  // // const setLocalStorage = () => {
+  // //   localStorage.setItem('isChecked', JSON.stringify(ischecked))
+  // // }
+  // // setLocalStorage()
+
+  // const checkedValue = JSON.parse(localStorage.getItem('isChecked'))
+  // console.log(checkedValue)
+
+  // // const checkedTrue = getLocalStorage()
+  // const handleOnChange = (e) => {
+  //   const checkedTrue = !ischecked
+  //   setIsChecked(checkedTrue)
+  //   localStorage.setItem('isChecked', JSON.stringify(checkedTrue))
+  //   // setIsChecked(Boolean(chekcedTrue))
+  // }
 
   return (
     <>
@@ -14,16 +34,21 @@ const Singletasks = () => {
             key={task._id}
             className="flex items-center justify-between rounded-md border px-2 py-2 mb-2"
           >
-            <div className="flex items-center gap-2 basis-3/5 ">
+            <form className="flex items-center gap-2 basis-3/5 ">
               <input
                 type="checkbox"
                 name="isCompleted"
+                defaultChecked={task.completed}
                 className="mr-1 h-4 w-4 md:h-5 md:w-5"
               />
-              <p className=" font-medium md:font-semibold text-base md:text-xl">
+              <p
+                className={` font-medium md:font-semibold text-base md:text-xl ${
+                  task.completed && 'line-through'
+                }`}
+              >
                 {task.name}
               </p>
-            </div>
+            </form>
             {/* small screen */}
 
             {/* Large screen */}
@@ -47,4 +72,4 @@ const Singletasks = () => {
     </>
   )
 }
-export default Singletasks
+export default ShowTasks

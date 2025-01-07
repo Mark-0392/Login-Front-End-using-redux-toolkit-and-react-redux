@@ -33,6 +33,7 @@ import { action as editTaskAction } from './Pages/EditTasks'
 // importing loaders
 import { loader as getAllTasksLoader } from './Pages/Landing'
 import { loader as getSingleTaskLoader } from './Pages/SingleTask'
+import { loader as editTaskLoader } from './Pages/EditTasks'
 // import store.js
 import { store } from '../store'
 
@@ -107,6 +108,7 @@ const router = createBrowserRouter([
         element: <EditTasks />,
         errorElement: <Error />,
         action: editTaskAction,
+        loader: editTaskLoader,
       },
     ],
   },

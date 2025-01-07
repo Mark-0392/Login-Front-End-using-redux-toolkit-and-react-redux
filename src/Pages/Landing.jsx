@@ -1,8 +1,8 @@
 import CommonFormLayout from '../Components/CommonFormLayout'
 import CreateTaskForm from '../Components/CreateTaskForm'
-import Singletasks from '../Components/Singletasks'
+
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
-import { Form } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router-dom'
 import landing from '../../src/assets/landing.jpg'
 import axios from 'axios'
 import { BaseURL } from '../../Utils/BaseUrl'
@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import { getUserDetails } from '../../Features/Users/userSlice'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import ShowTasks from '../Components/Singletasks'
 
 export const loader = async () => {
   const response = await axios.get('/api/v1/tasks/')
@@ -24,7 +25,7 @@ export const action = async ({ request }) => {
 
   try {
     const response = await axios.post('/api/v1/tasks/', data)
-    console.log(response.data)
+    // console.log(response.data)
     toast.success('task created successfully')
     return response.data
   } catch (error) {
@@ -39,6 +40,9 @@ const Landing = () => {
   useEffect(() => {
     dispatch(getUserDetails())
   }, [])
+  const { tasks } = useLoaderData()
+  console.log(tasks)
+
   return (
     <div className="  w-full sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
       <div className="max-w-xl mx-auto w-full py-4  ">
@@ -51,7 +55,7 @@ const Landing = () => {
         </Form>
 
         <div className="mt-4 max-w-xl mx-auto ">
-          <Singletasks />
+          <ShowTasks />
         </div>
       </div>
     </div>
