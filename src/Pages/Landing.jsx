@@ -2,7 +2,7 @@ import CommonFormLayout from '../Components/CommonFormLayout'
 import CreateTaskForm from '../Components/CreateTaskForm'
 
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
-import { Form, useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData, useRevalidator } from 'react-router-dom'
 import landing from '../../src/assets/landing.jpg'
 import axios from 'axios'
 import { BaseURL } from '../../Utils/BaseUrl'
@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 import { getUserDetails } from '../../Features/Users/userSlice'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import ShowTasks from '../Components/Singletasks'
+import ShowTasks from '../Components/ShowTasks'
 
 export const loader = async () => {
   const response = await axios.get('/api/v1/tasks/')
@@ -36,12 +36,13 @@ export const action = async ({ request }) => {
 }
 
 const Landing = () => {
+  const { tasks } = useLoaderData()
+  console.log(tasks)
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getUserDetails())
   }, [])
-  const { tasks } = useLoaderData()
-  console.log(tasks)
 
   return (
     <div className="  w-full sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
@@ -50,12 +51,13 @@ const Landing = () => {
         <h2 className="text-center max-sm:text-lg  mb-2 lg:text-3xl ">
           Add Tasks
         </h2>
+
         <Form method="post">
           <CreateTaskForm type="text" name="name" />
         </Form>
 
         <div className="mt-4 max-w-xl mx-auto ">
-          <ShowTasks />
+          <ShowTasks tasks1={tasks} />
         </div>
       </div>
     </div>

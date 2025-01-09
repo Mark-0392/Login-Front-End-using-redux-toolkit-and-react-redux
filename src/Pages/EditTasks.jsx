@@ -3,13 +3,12 @@ import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 
 export const loader = async ({ params }) => {
   try {
     const response = await axios.get(`/api/v1/tasks/${params.id}`)
-    console.log(response)
     const SingleTask = response.data
-    console.log(SingleTask)
     return SingleTask
   } catch (error) {
     const errorMsg = error?.response?.data?.msg

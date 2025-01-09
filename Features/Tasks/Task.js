@@ -1,15 +1,47 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+
+export const editTask = createAsyncThunk(
+  'editTask',
+  async ({ id, completed }) => {
+    try {
+      const response = await axios.patch(`/api/v1/tasks/${id}`, {
+        completed: completed,
+      })
+      console.log(response)
+      // const data = {
+      //   name: response.data.tasks.name,
+      //   completed: response.data.tasks.completed,
+      // }
+      return response.data
+    } catch (error) {
+      const errorMsg = error.response.data.msg
+      console.log(errorMsg)
+    }
+  }
+)
 
 const initialState = {
-  getSingleTask: [],
+  editTask: [],
 }
 
 const tasksSlice = createSlice({
   name: 'Tasks',
   initialState,
   reducers: {
-    getSingleTask: (state, action) => {
-      state.getSingleTask = { ...action.payload }
+    getUpdatedTask: (state, action) => {
+      // const id = action.payload
+      // const updatedIdtask = state.editTask.find((i) => i._id === id)
+      // console.log(updatedIdtask)
+      state.editTask = action.payload
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(editTask.fulfilled, (state, action) => {
+      state.editTask = action.payload.tasks
+      console.log(state)
+    })
+  },
 })
+export const { getUpdatedTask } = tasksSlice.actions
+export default tasksSlice.reducer

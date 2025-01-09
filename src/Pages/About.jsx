@@ -1,3 +1,4 @@
+import { useLoaderData } from 'react-router-dom'
 import img1 from '../../src/assets/About.png'
 
 const About = () => {
