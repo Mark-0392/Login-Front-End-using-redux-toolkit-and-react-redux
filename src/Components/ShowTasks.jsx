@@ -1,6 +1,12 @@
 import { MdEditSquare, MdDeleteForever } from 'react-icons/md'
 import { GrView } from 'react-icons/gr'
-import { Link, redirect, useLoaderData, useNavigate } from 'react-router-dom'
+import {
+  Link,
+  redirect,
+  useLoaderData,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editTask, getUpdatedTask } from '../../Features/Tasks/Task'
@@ -9,7 +15,7 @@ import { toast } from 'react-toastify'
 
 const ShowTasks = ({ tasks1 }) => {
   // console.log(tasks1)
-
+  const [searchParams, setSearchParams] = useSearchParams()
   const dispatch = useDispatch()
   const { tasks } = useLoaderData()
   console.log(tasks)
@@ -27,12 +33,60 @@ const ShowTasks = ({ tasks1 }) => {
   // const { completed: completed2 } = updatedTaskReal
   // console.log(completed2)
 
+  // const [isChecked, setIsChecked] = useState(updatedTaskReal.completed)
+
+  // const handleChange = async (e) => {
+  //   const id = updatedTaskReal._id
+  //   console.log(id)
+
+  //   const newValue = !isChecked
+  //   // setIsChecked(newValue)
+  //   console.log(newValue)
+  //   try {
+  //     const response = await axios.patch(`/api/v1/tasks/${id}`, {
+  //       completed: newValue,
+  //     })
+  //     console.log(response)
+  //     toast.success(response.data.msg)
+  //     setIsChecked(response.data.tasks.completed)
+  //     return navigate('/dashboard')
+  //   } catch (error) {
+  //     const errorMsg = error.response.data.msg
+  //     console.log(errorMsg)
+  //   }
+  // }
+
   const handleClick = async () => {
     const id = updatedTaskReal._id
+    console.log(id)
+
     try {
       const response = await axios.delete(`/api/v1/tasks/${id}`)
       console.log(response)
       toast.success(response.data.msg)
+      return navigate('/dashboard')
+    } catch (error) {
+      const errorMsg = error.response.data.msg
+      console.log(errorMsg)
+    }
+  }
+
+  const [ischecked, setIsChecked] = useState(false)
+  const handleChange = async (e, id) => {
+    const newValue = e.target.checked
+
+    console.log(id)
+    console.log(newValue)
+
+    try {
+      const response = await axios.patch(`/api/v1/tasks/${id}`, {
+        completed: newValue,
+      })
+      const somuchValue = response.data.tasks.completed
+      setIsChecked(somuchValue)
+      console.log(somuchValue)
+      toast.success(response.data.msg)
+
       return navigate('/dashboard')
     } catch (error) {
       const errorMsg = error.response.data.msg
@@ -47,15 +101,22 @@ const ShowTasks = ({ tasks1 }) => {
             key={task._id}
             className="flex items-center justify-between rounded-md border px-2 py-2 mb-2"
           >
-            {/* <div className="flex items-center gap-2 basis-3/5 "> */}
-            <p
-              className={` font-medium md:font-semibold text-base md:text-xl ${
-                task.completed ? 'line-through' : null
-              }`}
-            >
-              {task.name}
-            </p>
-            {/* </div> */}
+            <div className="flex items-center gap-2 basis-3/5 ">
+              <input
+                type="checkbox"
+                name="completed"
+                className={`size-4 md:size-5 `}
+                checked={task.completed}
+                onChange={(e) => handleChange(e, task._id)}
+              />
+              <p
+                className={` font-medium md:font-semibold text-base md:text-xl ${
+                  task.completed && 'line-through'
+                }`}
+              >
+                {task.name}
+              </p>
+            </div>
             {/* small screen */}
 
             {/* Large screen */}

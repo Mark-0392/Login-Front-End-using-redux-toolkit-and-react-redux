@@ -27,6 +27,7 @@ export const action = async ({ request }) => {
     const response = await axios.post('/api/v1/tasks/', data)
     // console.log(response.data)
     toast.success('task created successfully')
+
     return response.data
   } catch (error) {
     const errorMsg = error.response.data.msg
@@ -53,12 +54,16 @@ const Landing = () => {
         </h2>
 
         <Form method="post">
-          <CreateTaskForm type="text" name="name" />
+          <CreateTaskForm type="search" name="name" />
         </Form>
 
-        <div className="mt-4 max-w-xl mx-auto ">
-          <ShowTasks tasks1={tasks} />
-        </div>
+        {tasks.length === 0 ? (
+          <p className="mt-2 text-center">no tasks yet</p>
+        ) : (
+          <div className="mt-2 max-w-xl mx-auto ">
+            <ShowTasks tasks1={tasks} />
+          </div>
+        )}
       </div>
     </div>
   )

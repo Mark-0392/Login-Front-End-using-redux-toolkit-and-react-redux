@@ -17,10 +17,10 @@ const Single_Task = () => {
   const { task } = useLoaderData()
   console.log(task)
 
-  const { name, completed, _id: id, createdAt } = task
+  const { name, completed, _id: id, createdAt, updatedAt } = task
 
   const date = dayjs(createdAt).format('@ hh:mm a - on MMM Do, YYYY')
-
+  const updatedDate = dayjs(updatedAt).format('@ hh:mm a - on MMM Do, YYYY')
   // function getDate() {
   //   const today = new Date()
   //   const month = today.getMonth() + 1
@@ -51,6 +51,12 @@ const Single_Task = () => {
           Created At :{' '}
           <span className="text-base lg:text-lg text-sky-500 drop-shadow-md">
             {date}
+          </span>
+        </h5>
+        <h5 className="text-base font-semibold text-white lg:text-slate-500 lg:font-serif lg:text-xl drop-shadow-md ">
+          Updated At :{' '}
+          <span className="text-base lg:text-lg text-sky-500 drop-shadow-md">
+            {updatedDate}
           </span>
         </h5>
       </div>
