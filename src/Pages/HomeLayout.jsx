@@ -10,7 +10,7 @@ import Sidebar from '../Components/Sidebar'
 
 const HomeLayout = () => {
   const navigation = useNavigation()
-
+  const user = useSelector((state) => state.userState.user)
   const isPageLoading = navigation.state === 'loading'
   return (
     <>

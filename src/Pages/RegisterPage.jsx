@@ -5,9 +5,10 @@ import RegisterPageHeader from '../Components/Register Page Components/RegisterP
 import { BaseURL } from '../../Utils/BaseUrl'
 import { toast } from 'react-toastify'
 
-export const action = async ({ request }) => {
+export const action = async (e, { request }) => {
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
+
   try {
     const response = await BaseURL.post('api/v1/auth/register', data)
     // console.log(response)
@@ -26,9 +27,9 @@ export const action = async ({ request }) => {
 
 function RegisterPage() {
   return (
-    <section className="grid place-items-center min-h-screen bg-slate-900 lg:bg-slate-800 ">
-      <div className="grid">
-        <div className=" shadow-md rounded-lg m-3 px-3 py-8 lg:py-7 lg:px-6 lg:bg-white lg:w-[500px] lg:mx-auto border-y-2  border-white">
+    <section className=" grid place-items-center min-h-screen bg-slate-900 lg:bg-slate-800 px-2">
+      <div className="grid w-full border max-w-[450px] rounded-lg border-violet-500 lg:border-black">
+        <div className="  shadow-md rounded-lg px-3 py-8 lg:py-7 lg:px-6 lg:bg-white lg:w-[450px] lg:mx-auto">
           <RegisterPageHeader />
 
           {/* A separate div for form details */}
@@ -56,7 +57,7 @@ function RegisterPage() {
               placeholder="set your password"
               defaultValue="success"
             />
-            <div className=" flex items-center">
+            {/* <div className=" flex items-center">
               <input
                 type="checkbox"
                 name="terms-and-conditions"
@@ -75,8 +76,9 @@ function RegisterPage() {
                   Terms & Privacy Policy.
                 </Link>
               </label>
-            </div>
+            </div> */}
             <SubmitButtonCommon
+              width={'w-full'}
               text="Register"
               navigationState="registering...."
             />

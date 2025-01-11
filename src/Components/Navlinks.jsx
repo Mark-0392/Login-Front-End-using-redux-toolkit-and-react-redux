@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, redirect, useNavigate } from 'react-router-dom'
 import { FaHome, FaEnvelopeOpenText, FaUserEdit } from 'react-icons/fa'
 import { FcAbout } from 'react-icons/fc'
 import { PiSignOutBold, PiPasswordBold } from 'react-icons/pi'
 import { BsInfoCircleFill } from 'react-icons/bs'
-
+import { logoutUser } from '../../Features/Users/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   selectText,
@@ -11,6 +11,9 @@ import {
   Active,
   closeSetting,
 } from '../../Features/Settings/settingSlice'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+
 const navlinks = [
   {
     id: 1,
@@ -92,6 +95,18 @@ export const Navlinks = () => {
 export const Navlink_With_Icon = () => {
   const { isSelectedText } = useSelector((state) => state.setting)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handleClick = async () => {
+    try {
+      const response = await axios.delete('/api/v1/auth/logout')
+      console.log(response)
+      toast.success('You are logged out successfully')
+      return navigate('/login')
+    } catch (error) {
+      console.log(error)
+    }
+    dispatch(logoutUser())
+  }
   return (
     <div>
       <ul className=" flex flex-col gap-y-4 py-4 text-white ">
@@ -122,6 +137,7 @@ export const Navlink_With_Icon = () => {
         <button
           type="button"
           className="inline-flex gap-2 items-center px-[10px] py-2 hover:bg-red-500 hover:text-white hover:rounded-sm transition-all duration-700 text-sm"
+          onClick={handleClick}
         >
           <PiSignOutBold size={22} />
           Sign Out

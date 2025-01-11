@@ -48,7 +48,7 @@ function LoginPage() {
     <div className="flex justify-center items-center min-h-screen bg-slate-900 lg:bg-none lg:bg-slate-900">
       <Form
         method="post"
-        className="w-[26rem] h-96 shadow-lg rounded-lg border border-gray-100 px-4 flex flex-col justify-center gap-2 "
+        className="w-[26rem] h-96 shadow-lg rounded-lg border border-gray-100 px-4 flex flex-col justify-center gap-2 lg:bg-white"
       >
         <h2 className="text-3xl font-semibold text-white lg:text-white sm:text-2xl text-center ">
           Login In

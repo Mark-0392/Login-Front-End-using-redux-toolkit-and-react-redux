@@ -20,8 +20,23 @@ export const getUserDetails = createAsyncThunk(
   }
 )
 
+// export const logoutUserThunk = createAsyncThunk(
+//   'user/logoutUserThunk',
+//   async () => {
+//     try {
+//       const response = await axios.delete(`/api/v1/auth/logout`)
+//       console.log(response.data)
+//       return response
+//     } catch (error) {
+//       const errorMsg = error.response.data.msg
+//       console.log(errorMsg)
+//     }
+//   }
+// )
+
 const initialState = {
   user: {},
+  message: '',
 }
 
 const userSlice = createSlice({
@@ -35,7 +50,7 @@ const userSlice = createSlice({
     },
     logoutUser: (state, action) => {
       state.user = null
-      toast.success('You have successfully logged out')
+      toast.success('You have logged out successfully')
     },
   },
   extraReducers: (builder) => {

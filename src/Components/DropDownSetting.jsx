@@ -1,7 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, redirect, useNavigate } from 'react-router-dom'
 import { PiSignOutBold, PiPasswordBold } from 'react-icons/pi'
 import { FaUserEdit } from 'react-icons/fa'
-
+import { useDispatch } from 'react-redux'
+import { logoutUser } from '../../Features/Users/userSlice'
+import { toast } from 'react-toastify'
+import axios from 'axios'
+import { closeSetting } from '../../Features/Settings/settingSlice'
 const dropDownLinks = [
   {
     id: 1,
@@ -18,9 +22,26 @@ const dropDownLinks = [
 ]
 
 const DropDownSetting = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handleClick = async () => {
+    try {
+      const response = await axios.delete('/api/v1/auth/logout')
+      console.log(response)
+      toast.success('You are logged out successfully')
+      return navigate('/')
+    } catch (error) {
+      // const errorMsg = error.response
+      console.log(error)
+    }
+    dispatch(logoutUser())
+  }
   return (
     <>
-      <div className="border flex flex-col rounded-s-md absolute top-16 md:right-4  ">
+      <div
+        className="border flex flex-col rounded-s-md absolute top-16 md:right-4 hidden lg:flex "
+        onClick={(e) => dispatch(closeSetting())}
+      >
         {dropDownLinks.map((link) => {
           const { id, url, text, icon } = link
           return (
@@ -37,6 +58,7 @@ const DropDownSetting = () => {
         <button
           type="button"
           className="inline-flex gap-2 items-center px-[10px] py-2 hover:bg-red-500 hover:text-white hover:rounded-sm duration-500"
+          onClick={handleClick}
         >
           <PiSignOutBold size={20} />
           Sign Out
