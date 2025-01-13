@@ -53,13 +53,13 @@ const links_With_Icon = [
   },
   {
     id: 4,
-    url: '/updateUserDetails',
+    url: 'user/updateUserDetails',
     text: 'Edit/update Your Details',
     icon: <FaUserEdit size={20} />,
   },
   {
     id: 5,
-    url: '/updateUserPassword',
+    url: 'user/updateUserPassword',
     text: 'Edit/update Your Password',
     icon: <PiPasswordBold size={20} />,
   },

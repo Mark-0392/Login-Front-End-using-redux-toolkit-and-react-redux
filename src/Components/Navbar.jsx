@@ -12,18 +12,23 @@ import DropDownSetting from './DropDownSetting'
 
 import { closeSetting } from '../../Features/Settings/settingSlice'
 
+import { getUserDetails } from '../../Features/Users/userSlice'
+import { useEffect } from 'react'
+
 const Navbar = () => {
   const topLeft = () => {
     toast.success('Hey 👋! You are logged out', {
       position: 'top-left',
     })
   }
-
   const user = useSelector((state) => state.userState.user)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getUserDetails())
+  }, [])
+
   const { isOpen } = useSelector((state) => state.setting)
   const navigate = useNavigate()
-
-  const dispatch = useDispatch()
 
   return (
     <>

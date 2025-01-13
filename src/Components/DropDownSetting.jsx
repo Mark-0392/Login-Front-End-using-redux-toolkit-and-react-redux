@@ -9,13 +9,13 @@ import { closeSetting } from '../../Features/Settings/settingSlice'
 const dropDownLinks = [
   {
     id: 1,
-    url: '/updateUserDetails',
+    url: 'user/updateUserDetails',
     text: 'Edit/update Your Details',
     icon: <FaUserEdit size={20} />,
   },
   {
     id: 2,
-    url: '/updateUserPassword',
+    url: 'user/updateUserPassword',
     text: 'Edit/update Your Password',
     icon: <PiPasswordBold size={20} />,
   },
@@ -39,7 +39,7 @@ const DropDownSetting = () => {
   return (
     <>
       <div
-        className="border flex flex-col rounded-s-md absolute top-16 md:right-4 hidden lg:flex "
+        className="border flex-col rounded-s-md absolute top-16 md:right-4 hidden lg:flex "
         onClick={(e) => dispatch(closeSetting())}
       >
         {dropDownLinks.map((link) => {

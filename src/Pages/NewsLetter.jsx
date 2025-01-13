@@ -3,7 +3,7 @@ import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import img1 from '../../src/assets//icons8-newsletter.gif'
 const NewsLetter = () => {
   return (
-    <div className="grid place-items-center w-full px-2  mx-auto h-[calc(100%-36px)] lg:h-[calc(100%-56px)] max-lg:bg-newsLetter bg-center bg-cover bg-no-repeat lg:bg-slate-800 ">
+    <div className="grid place-items-center w-full px-2  mx-auto max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-56px)] max-lg:bg-newsLetter bg-center bg-cover bg-no-repeat lg:bg-slate-800 ">
       <div className=" flex flex-col gap-y-4 lg:gap-y-8  flex-1 text-white lg:text-black  md:border-4 md:border-double md:border-violet-800 px-2 lg:px-8 py-4 lg:py-8 hover:shadow-md hover:shadow-violet-700 lg:hover:shadow-lg lg:hover:shadow-red-400 rounded-md lg:bg-white md:mt-4 lg:mt-0">
         <div className="mx-auto hidden lg:block">
           <img src={img1} alt="" />

@@ -4,9 +4,9 @@ import img1 from '../../src/assets/About.png'
 const About = () => {
   return (
     <>
-      <div className="grid place-items-center h-[calc(100%-36px)] lg:h-[calc(100%-56px)]">
-        <div className="w-full h-full py-4  space-y-2 lg:gap-y-3 mx-auto  flex  flex-col  items-center justify-center bg-slate-500 px-2 ">
-          <div className="w-72 hidden lg:block">
+      <div className="grid place-items-center max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)]">
+        <div className="w-full h-full py-4 space-y-2 lg:gap-y-3 mx-auto  flex  flex-col  items-center justify-center bg-slate-500 px-2 ">
+          <div className="w-72 hidden md:block">
             <img src={img1} alt="" />
           </div>
           <h1 className="text-xl lg:text-4xl  font-serif lg:font-bold leading-snug tracking-tight ml-2 lg:ml-0 ">

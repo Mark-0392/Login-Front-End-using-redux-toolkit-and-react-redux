@@ -50,8 +50,8 @@ function LoginPage() {
         method="post"
         className="w-[26rem] h-96 shadow-lg rounded-lg border border-gray-100 px-4 flex flex-col justify-center gap-2 lg:bg-white"
       >
-        <h2 className="text-3xl font-semibold text-white lg:text-white sm:text-2xl text-center ">
-          Login In
+        <h2 className="text-3xl font-semibold text-white lg:text-blue-500 sm:text-2xl text-center ">
+          Sign In
         </h2>
         <div className="mb-4">
           <CommonFormLayout
@@ -77,7 +77,7 @@ function LoginPage() {
         >
           Forgot Password ?
         </Link>
-        <SubmitButtonCommon text="Sign In" navigationState="Logging in..." />
+        <SubmitButtonCommon text="Log In" navigationState="Logging in..." />
       </Form>
     </div>
   )

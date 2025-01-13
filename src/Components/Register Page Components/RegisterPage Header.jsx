@@ -8,8 +8,9 @@ const RegisterPageHeader = () => {
         Already have an account?
         <Link
           to="/login"
-          className="font-bold text-blue-400 hover:text-blue-500 sm:max-md:text-blue-200 ml-1"
+          className=" text-2xl text-blue-600 hover:text-blue-400  sm:max-md:text-blue-200 ml-1"
         >
+          {' '}
           Login
         </Link>
       </p>

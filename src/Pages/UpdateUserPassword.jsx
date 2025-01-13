@@ -23,7 +23,7 @@ export const action = async ({ request }) => {
 
 const ResetPassword = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-slate-800 lg:bg-white">
+    <div className="max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] flex justify-center items-center  bg-slate-800 lg:bg-white">
       <Form
         method="PATCH"
         className="px-2 max-w-xl flex-1 flex flex-col border gap-y-4 py-4"

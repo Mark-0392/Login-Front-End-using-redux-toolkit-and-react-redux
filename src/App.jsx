@@ -64,18 +64,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     action: resetPasswordAction,
   },
-  {
-    path: '/updateUserDetails',
-    element: <UpdateUser />,
-    errorElement: <Error />,
-    action: updateUserAction,
-  },
-  {
-    path: '/updateUserPassword',
-    element: <UpdateUserPassword />,
-    errorElement: <Error />,
-    action: updateUserPasswordAction,
-  },
+
   {
     path: '/dashboard',
     element: <HomeLayout />,
@@ -111,6 +100,18 @@ const router = createBrowserRouter([
         errorElement: <Error />,
         action: editTaskAction,
         loader: editTaskLoader,
+      },
+      {
+        path: 'user/updateUserDetails',
+        element: <UpdateUser />,
+        errorElement: <Error />,
+        action: updateUserAction,
+      },
+      {
+        path: 'user/updateUserPassword',
+        element: <UpdateUserPassword />,
+        errorElement: <Error />,
+        action: updateUserPasswordAction,
       },
     ],
   },
