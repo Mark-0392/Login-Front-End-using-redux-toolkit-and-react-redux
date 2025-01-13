@@ -20,7 +20,6 @@ import ShowTasks from '../Components/ShowTasks'
 
 export const loader = (store) => async () => {
   const user = store.getState().userState.user
-  console.log(user)
 
   try {
     const response = await axios.get('/api/v1/tasks/')
@@ -52,7 +51,6 @@ export const action = async ({ request }) => {
 
 const Landing = () => {
   const { tasks } = useLoaderData()
-  console.log(tasks)
 
   const dispatch = useDispatch()
   useEffect(() => {

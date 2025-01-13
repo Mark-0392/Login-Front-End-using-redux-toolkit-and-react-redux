@@ -16,11 +16,6 @@ import { getUserDetails } from '../../Features/Users/userSlice'
 import { useEffect } from 'react'
 
 const Navbar = () => {
-  const topLeft = () => {
-    toast.success('Hey 👋! You are logged out', {
-      position: 'top-left',
-    })
-  }
   const user = useSelector((state) => state.userState.user)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -28,7 +23,6 @@ const Navbar = () => {
   }, [])
 
   const { isOpen } = useSelector((state) => state.setting)
-  const navigate = useNavigate()
 
   return (
     <>

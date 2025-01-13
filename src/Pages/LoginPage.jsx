@@ -16,7 +16,6 @@ export const action =
     try {
       const response = await axios.post('/api/v1/auth/login', data)
       store.dispatch(loginUser(response.data))
-
       toast.success('You have successfully logged in')
       return redirect('/dashboard')
     } catch (error) {

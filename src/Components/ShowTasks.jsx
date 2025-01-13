@@ -1,64 +1,28 @@
 import { MdEditSquare, MdDeleteForever } from 'react-icons/md'
 import { GrView } from 'react-icons/gr'
-import {
-  Link,
-  redirect,
-  useLoaderData,
-  useNavigate,
-  useSearchParams,
-} from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { editTask, getUpdatedTask } from '../../Features/Tasks/Task'
+import { Link, useLoaderData, useNavigate } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
+
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const ShowTasks = ({ tasks1 }) => {
   // console.log(tasks1)
-  const [searchParams, setSearchParams] = useSearchParams()
+
   const dispatch = useDispatch()
   const { tasks } = useLoaderData()
-  console.log(tasks)
+
   const navigate = useNavigate()
-  // const updatedtask = useSelector((state) => state.editTask.editTask)
-  // console.log(updatedtask)
-  // const { completed } = updatedtask
-  // console.log(completed)
 
   const updatedTaskReal = tasks1.find((singeTask) => {
     const { _id: id } = singeTask
     return id
   })
-  console.log(updatedTaskReal)
-  // const { completed: completed2 } = updatedTaskReal
-  // console.log(completed2)
-
-  // const [isChecked, setIsChecked] = useState(updatedTaskReal.completed)
-
-  // const handleChange = async (e) => {
-  //   const id = updatedTaskReal._id
-  //   console.log(id)
-
-  //   const newValue = !isChecked
-  //   // setIsChecked(newValue)
-  //   console.log(newValue)
-  //   try {
-  //     const response = await axios.patch(`/api/v1/tasks/${id}`, {
-  //       completed: newValue,
-  //     })
-  //     console.log(response)
-  //     toast.success(response.data.msg)
-  //     setIsChecked(response.data.tasks.completed)
-  //     return navigate('/dashboard')
-  //   } catch (error) {
-  //     const errorMsg = error.response.data.msg
-  //     console.log(errorMsg)
-  //   }
-  // }
+  // console.log(updatedTaskReal)
 
   const handleClick = async () => {
     const id = updatedTaskReal._id
-    console.log(id)
 
     try {
       const response = await axios.delete(`/api/v1/tasks/${id}`)
@@ -71,20 +35,17 @@ const ShowTasks = ({ tasks1 }) => {
     }
   }
 
-  const [ischecked, setIsChecked] = useState(false)
+  // const [ischecked, setIsChecked] = useState(false)
   const handleChange = async (e, id) => {
     const newValue = e.target.checked
-
-    console.log(id)
-    console.log(newValue)
 
     try {
       const response = await axios.patch(`/api/v1/tasks/${id}`, {
         completed: newValue,
       })
-      const somuchValue = response.data.tasks.completed
-      setIsChecked(somuchValue)
-      console.log(somuchValue)
+      // const somuchValue = response.data.tasks.completed
+      // setIsChecked(somuchValue)
+
       toast.success(response.data.msg)
 
       return navigate('/dashboard')

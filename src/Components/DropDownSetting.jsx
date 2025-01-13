@@ -27,7 +27,6 @@ const DropDownSetting = () => {
   const handleClick = async () => {
     try {
       const response = await axios.delete('/api/v1/auth/logout')
-      console.log(response)
       toast.success('You are logged out successfully')
       return navigate('/')
     } catch (error) {

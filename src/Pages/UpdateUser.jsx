@@ -11,9 +11,7 @@ export const action = async ({ request }) => {
 
   try {
     const response = await axios.patch('/api/v1/users/userDetailsUpdate', data)
-    console.log(response)
 
-    // toast.success('Your details updated successfully')
     toast.success(response.data.msg)
     toast.success(
       'Please login with your new updated email address to continue'
@@ -21,7 +19,7 @@ export const action = async ({ request }) => {
     return redirect('/login')
   } catch (error) {
     const errorMsg = error?.response?.data?.msg
-    console.log(error)
+
     console.log(errorMsg)
     return null
   }
