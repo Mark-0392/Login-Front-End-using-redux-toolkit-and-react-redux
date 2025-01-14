@@ -14,7 +14,7 @@ export default {
         milkbar: "url('/src/assets/Mobile background Image/image5.jpg')",
         night: "url('/src/assets/Mobile background Image/image6.jpg')",
         loginPage: "url('/src/assets/diamond-sunset.png')",
-        registerPage: "url('/src/assets/abstract-envelope.png')",
+        registerPage: "url('/src/assets/flat-mountains.png')",
       },
     },
   },
