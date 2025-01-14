@@ -10,14 +10,18 @@ import Sidebar from '../Components/Sidebar'
 
 const HomeLayout = () => {
   const navigation = useNavigation()
-  const user = useSelector((state) => state.userState.user)
   const isPageLoading = navigation.state === 'loading'
   return (
     <>
       <div className="h-screen bg-slate-50 max-w-6xl mx-auto relative">
-        <Navbar />
-        <Sidebar />
-        <Outlet />
+        {isPageLoading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            {' '}
+            <Navbar /> <Sidebar /> <Outlet />
+          </>
+        )}
       </div>
     </>
   )

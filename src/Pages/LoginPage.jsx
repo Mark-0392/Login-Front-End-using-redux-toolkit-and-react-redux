@@ -2,8 +2,7 @@ import { toast } from 'react-toastify'
 import CommonFormLayout from '../Components/CommonFormLayout'
 import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import { Form, Link, redirect } from 'react-router-dom'
-import { BaseURL } from '../../Utils/BaseUrl'
-import { useDispatch } from 'react-redux'
+
 import { loginUser } from '../../Features/Users/userSlice'
 import axios from 'axios'
 
@@ -44,10 +43,10 @@ export const action =
 
 function LoginPage() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-slate-900 lg:bg-none lg:bg-slate-900">
+    <div className="flex justify-center items-center min-h-screen max-lg:bg-night bg-cover bg-center px-2 lg:bg-loginPage">
       <Form
         method="post"
-        className="w-[26rem] h-96 shadow-lg rounded-lg border border-gray-100 px-4 flex flex-col justify-center gap-2 lg:bg-white"
+        className="w-full max-w-[500px]  h-96 shadow-lg rounded-lg bg-black/60 border-white/10 px-4 flex flex-col justify-center gap-2 lg:bg-white lg:border-pink-700"
       >
         <h2 className="text-3xl font-semibold text-white lg:text-blue-500 sm:text-2xl text-center ">
           Sign In
@@ -72,7 +71,7 @@ function LoginPage() {
         </div>
         <Link
           to="/forgotPassword"
-          className="text-white self-end hover:text-cyan-200 mb-2"
+          className="text-white lg:text-slate-700 self-end hover:text-black mb-2 text-lg"
         >
           Forgot Password ?
         </Link>

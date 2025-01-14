@@ -27,9 +27,9 @@ export const action = async (e, { request }) => {
 
 function RegisterPage() {
   return (
-    <section className=" grid place-items-center min-h-screen bg-slate-900 lg:bg-slate-800 px-2">
-      <div className="grid w-full border max-w-[450px]  rounded-lg border-violet-500 lg:border-black">
-        <div className=" shadow-md rounded-lg px-3 py-8 lg:py-7 lg:px-6 lg:bg-white lg:w-[450px] lg:mx-auto">
+    <section className=" grid place-items-center min-h-screen  lg:bg-registerPage px-2 max-lg:bg-milkbar bg-cover bg-center background">
+      <div className="grid w-full max-w-[500px] border rounded-lg border-black/60 lg:border-black bg-black/45 ">
+        <div className=" shadow-md rounded-lg px-3 py-8 lg:py-7 lg:px-6 lg:bg-white ">
           <RegisterPageHeader />
 
           {/* A separate div for form details */}

@@ -19,7 +19,6 @@ export const loader = async ({ params }) => {
 
 export const action = async ({ request }) => {
   const formData = await request.formData()
-
   const name = await formData.get('task')
   let completed = await formData.get('completed')
   if (completed === 'on') {
@@ -34,12 +33,10 @@ export const action = async ({ request }) => {
 
   const url = request.url
   const value = url.split('/editTasks/')[1]
-  console.log(value)
 
   try {
     const response = await axios.patch(`/api/v1/tasks/${value}`, data)
     const updatedTask = response.data.tasks
-    console.log(updatedTask)
     toast.success(response.data.msg)
     return redirect('/dashboard')
   } catch (error) {
@@ -50,7 +47,6 @@ export const action = async ({ request }) => {
 
 const EditTasks = () => {
   const { task } = useLoaderData()
-  console.log(task)
 
   return (
     <div className="max-lg:h-[calc(100%-36px)] lg:h-[calc(100%-56px)]  grid place-items-center bg-slate-800 lg:bg-white border">

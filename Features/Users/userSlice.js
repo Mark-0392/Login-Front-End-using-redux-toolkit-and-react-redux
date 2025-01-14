@@ -1,19 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { BaseURL } from '../../Utils/BaseUrl'
+
 import axios from 'axios'
-import { act } from 'react'
 
 export const getUserDetails = createAsyncThunk(
   'user/getUserDetails',
   async () => {
     try {
       const response = await axios.get(`/api/v1/users/showMe`)
-
       return response.data
     } catch (error) {
-      console.log(error)
       const errorMsg = error?.response?.data?.msg
       console.log(errorMsg)
     }
@@ -46,7 +43,6 @@ const userSlice = createSlice({
     loginUser: (state, action) => {
       let user = action.payload.user
       state.user = user
-      console.log(state.user)
     },
     logoutUser: (state, action) => {
       state.user = null

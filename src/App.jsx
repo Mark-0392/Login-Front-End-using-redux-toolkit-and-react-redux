@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         element: <Landing />,
         errorElement: <ErrorElement />,
         action: createTaskAction,
-        loader: getAllTasksLoader(store),
+        loader: getAllTasksLoader,
       },
       {
         path: 'about',

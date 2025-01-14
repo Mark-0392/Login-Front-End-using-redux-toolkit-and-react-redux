@@ -1,30 +1,19 @@
-import CommonFormLayout from '../Components/CommonFormLayout'
 import CreateTaskForm from '../Components/CreateTaskForm'
 
-import SubmitButtonCommon from '../Components/SubmitButtonCommon'
-import {
-  Form,
-  redirect,
-  useLoaderData,
-  useNavigate,
-  useRevalidator,
-} from 'react-router-dom'
+import { Form, redirect, useLoaderData } from 'react-router-dom'
 import landing from '../../src/assets/landing.jpg'
 import axios from 'axios'
-import { BaseURL } from '../../Utils/BaseUrl'
+
 import { toast } from 'react-toastify'
 import { getUserDetails } from '../../Features/Users/userSlice'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ShowTasks from '../Components/ShowTasks'
 
-export const loader = (store) => async () => {
-  const user = store.getState().userState.user
-
+export const loader = async () => {
   try {
     const response = await axios.get('/api/v1/tasks/')
     const getAlltasks = response.data
-
     return getAlltasks
   } catch (error) {
     toast.warn('Sorry! Your session expired. Please log in')
@@ -40,7 +29,6 @@ export const action = async ({ request }) => {
     const response = await axios.post('/api/v1/tasks/', data)
     // console.log(response.data)
     toast.success('task created successfully')
-
     return response.data
   } catch (error) {
     const errorMsg = error.response.data.msg

@@ -10,7 +10,6 @@ export const action = async ({ request }) => {
 
   try {
     const response = await axios.post('api/v1/auth/forgot-password', data)
-
     return redirect(response.data)
   } catch (error) {
     const errorMsg = error?.response?.data?.msg

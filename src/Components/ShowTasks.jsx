@@ -26,7 +26,6 @@ const ShowTasks = ({ tasks1 }) => {
 
     try {
       const response = await axios.delete(`/api/v1/tasks/${id}`)
-      console.log(response)
       toast.success(response.data.msg)
       return navigate('/dashboard')
     } catch (error) {
