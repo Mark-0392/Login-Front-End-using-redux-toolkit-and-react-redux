@@ -33,7 +33,9 @@ const Navbar = () => {
             <div>
               <img src={Logo} alt="logo" className="size-5 md:size-6 " />
             </div>
-            <h1 className="font-medium text-base lg:text-xl">Task App</h1>
+            <h1 className=" text-base lg:text-xl font-Roboto_Bold_Italic">
+              Task App
+            </h1>
           </div>
 
           {/* Navlinks */}
@@ -45,9 +47,9 @@ const Navbar = () => {
 
           {/* UserName and logout button */}
           <div className="flex items-center gap-3">
-            <p className="text-sm  lg:text-base">
+            <p className="text-xs font-BlackOps_Regular lg:text-base ">
               Hi!
-              <span className="font-bold md:text-lg text-pink-700  ">
+              <span className="text-base md:text-xl text-pink-600 font-Ysabeau_Bold ">
                 {' '}
                 {user.userName}
               </span>

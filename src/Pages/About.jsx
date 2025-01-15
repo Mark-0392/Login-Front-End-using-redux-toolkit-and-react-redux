@@ -9,10 +9,10 @@ const About = () => {
           <div className="w-72 hidden md:block">
             <img src={img1} alt="" />
           </div>
-          <h1 className="text-xl lg:text-4xl  font-serif lg:font-bold leading-snug tracking-tight ml-2 lg:ml-0 ">
+          <h1 className="text-xl lg:text-4xl text-white font-serif lg:font-bold leading-snug tracking-tight ml-2 lg:ml-0 ">
             We love to help people remember things.
           </h1>
-          <p className="lg:tracking-wide leading-relaxed px-2 ml-6 lg:ml-4 text-base md:text-lg  lg:text-xl text-slate-100 text-wrap ">
+          <p className="lg:tracking-wide leading-relaxed px-2 ml-6 lg:ml-4 text-base md:text-lg  lg:text-xl text-slate-300 text-wrap ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic veniam
             odit, officiis eos mollitia alias, doloremque, aspernatur ratione
             asperiores voluptas labore minus dolores reprehenderit corporis

@@ -15,7 +15,6 @@ export const loader = async ({ params }) => {
 
 const Single_Task = () => {
   const { task } = useLoaderData()
-  console.log(task)
 
   const { name, completed, _id: id, createdAt, updatedAt } = task
 

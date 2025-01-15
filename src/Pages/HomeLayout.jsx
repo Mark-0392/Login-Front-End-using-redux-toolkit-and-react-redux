@@ -1,12 +1,8 @@
 import { Outlet, useNavigation } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
-import { MdOutlineArrowForwardIos } from 'react-icons/md'
-import { Navlinks } from '../Components/Navlinks'
-import { Navlink_With_Icon } from '../Components/Navlinks'
-import DropDownSetting from '../Components/DropDownSetting'
-import { useDispatch, useSelector } from 'react-redux'
-import { closeNav } from '../../Features/Settings/settingSlice'
+
 import Sidebar from '../Components/Sidebar'
+import Loading from '../../Utils/loading'
 
 const HomeLayout = () => {
   const navigation = useNavigation()
@@ -15,13 +11,15 @@ const HomeLayout = () => {
     <>
       <div className="h-screen bg-slate-50 max-w-6xl mx-auto relative">
         {isPageLoading ? (
-          <h1>Loading...</h1>
+          <Loading />
         ) : (
           <>
-            {' '}
             <Navbar /> <Sidebar /> <Outlet />
           </>
         )}
+        {/* <Navbar />
+        <Sidebar />
+        <Outlet /> */}
       </div>
     </>
   )

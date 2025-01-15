@@ -49,7 +49,7 @@ const Landing = () => {
     <div className="  w-full sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] px-2  mx-auto flex flex-col items-center justify-center  bg-landing bg-cover bg-no-repeat bg-center">
       <div className="max-w-xl mx-auto w-full py-4  ">
         {/* <h2>hello there</h2> */}
-        <h2 className="text-center max-sm:text-lg  mb-2 lg:text-3xl ">
+        <h2 className="text-center max-sm:text-lg  mb-2 lg:text-3xl font-LeckerLi_One_Regular">
           Add Tasks
         </h2>
 
@@ -58,7 +58,9 @@ const Landing = () => {
         </Form>
 
         {tasks.length === 0 ? (
-          <p className="mt-2 text-center">no tasks yet</p>
+          <p className="mt-2 text-center text-base md:text-lg lg:text-xl font-LeckerLi_One_Regular">
+            no tasks yet. Start adding!
+          </p>
         ) : (
           <div className="mt-2 max-w-xl mx-auto ">
             <ShowTasks tasks1={tasks} />

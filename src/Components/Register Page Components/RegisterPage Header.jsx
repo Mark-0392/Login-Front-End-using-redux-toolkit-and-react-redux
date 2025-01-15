@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 const RegisterPageHeader = () => {
   return (
     <div className="text-white lg:text-black mb-8 text-center">
-      <h2 className="font-bold text-3xl lg:text-4xl ">Create an account</h2>
-      <p className="font-medium pt-1 text-sm lg:text-lg">
+      <h2 className=" font-DM_Serif_FontBold font-normal text-2xl md:text-3xl text-red-400">
+        Create an Account
+      </h2>
+      <p className="font-Roboto_Bold_Italic font-medium text-base pt-1  lg:text-xl">
         Already have an account?
         <Link
           to="/login"
-          className=" text-2xl text-blue-600 hover:text-blue-400  sm:max-md:text-blue-200 ml-1"
+          className="font-Playfair_SemiBold font-semibold text-xl lg:text-3xl text-pink-600 hover:text-blue-700  sm:max-md:text-blue-200 ml-1"
         >
           {' '}
           Login

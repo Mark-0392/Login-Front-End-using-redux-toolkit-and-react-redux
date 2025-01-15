@@ -3,11 +3,11 @@ import SubmitButtonCommon from '../Components/SubmitButtonCommon'
 import img1 from '../../src/assets//icons8-newsletter.gif'
 const NewsLetter = () => {
   return (
-    <div className="grid place-items-center w-full px-2  mx-auto max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-56px)] max-lg:bg-newsLetter bg-center bg-cover bg-no-repeat lg:bg-slate-800 ">
-      <div className=" flex flex-col gap-y-4 lg:gap-y-8  flex-1 text-white lg:text-black  md:border-4 md:border-double md:border-violet-800 px-2 lg:px-8 py-4 lg:py-8 hover:shadow-md hover:shadow-violet-700 lg:hover:shadow-lg lg:hover:shadow-red-400 rounded-md lg:bg-white md:mt-4 lg:mt-0">
-        <div className="mx-auto hidden lg:block">
+    <div className="grid place-items-center w-full px-2  mx-auto max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-56px)] bg-newsLetter bg-center bg-cover bg-no-repeat  ">
+      <div className=" flex flex-col gap-y-4 lg:gap-y-8  flex-1 text-white  md:border-4 md:border-double md:border-violet-800 px-2 lg:px-8 py-4 lg:py-8 hover:shadow-md hover:shadow-violet-700 lg:hover:shadow-md lg:hover:shadow-pink-500  duration-700 rounded-md  md:mt-4 lg:mt-0">
+        {/* <div className="mx-auto hidden lg:block ">
           <img src={img1} alt="" />
-        </div>
+        </div> */}
         <div className="flex flex-col space-y-3">
           <h2 className=" lg:text-center font-bold text-base lg:text-2xl capitalize hidden lg:block">
             We will be glad if you can join us for better future

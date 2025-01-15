@@ -24,9 +24,9 @@ const ResetPassword = () => {
     <div className="max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] flex justify-center items-center  bg-slate-800 lg:bg-white">
       <Form
         method="PATCH"
-        className="px-2 max-w-xl flex-1 flex flex-col border gap-y-4 py-4"
+        className="px-2 max-w-xl flex-1 flex flex-col lg:border gap-y-6 py-4 hover:shadow-lg hover:shadow-purple-400 lg:hover:shadow-lg lg:hover:shadow-fuchsia-400/50  duration-700"
       >
-        <h2 className="text-base font-semibold text-white lg:text-black lg:text-lg text-center">
+        <h2 className="text-base font-semibold text-white lg:text-black lg:text-2xl text-center font-DM_Serif_FontBold tracking-wider">
           Update Your Password
         </h2>
         <div className="flex gap-1 justify-center items-center">

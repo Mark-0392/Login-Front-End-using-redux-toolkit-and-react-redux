@@ -75,9 +75,9 @@ export const Navlinks = () => {
         return (
           <li
             key={id}
-            className={`text-sm lg:font-light lg:text-lg  rounded-md px-2 hover:bg-emerald-300 hover:translate-y-1 duration-500 ease-in-out cursor-pointer ${
+            className={`text-sm font-BlackOps_Regular lg:font-medium lg:text-xl  rounded-md px-2  duration-500 ease-in-out cursor-pointer lg:text-red-400 ${
               isActive === text
-                ? 'bg-blue-500 rounded-md text-white transition-all ease-in  duration-500 '
+                ? 'bg-white rounded-md text-white transition-all ease-in  duration-700 '
                 : 'bg-none'
             }`}
             onClick={() => dispatch(Active(text))}

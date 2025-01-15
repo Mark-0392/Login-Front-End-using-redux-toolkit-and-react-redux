@@ -48,7 +48,7 @@ function LoginPage() {
         method="post"
         className="w-full max-w-[500px]  h-96 shadow-lg rounded-lg bg-black/60 border-white/10 px-4 flex flex-col justify-center gap-2 lg:bg-white lg:border-pink-700"
       >
-        <h2 className="text-3xl font-semibold text-white lg:text-blue-500 sm:text-2xl text-center ">
+        <h2 className="text-2xl font-Playfair_SemiBold font-semibold  text-white lg:text-pink-600 lg:text-4xl text-center ">
           Sign In
         </h2>
         <div className="mb-4">
