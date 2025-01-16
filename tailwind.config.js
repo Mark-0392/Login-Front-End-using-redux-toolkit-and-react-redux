@@ -17,7 +17,7 @@ export default {
         registerPage: "url('/src/assets/flat-mountains.png')",
       },
       fontFamily: {
-        Playfair_SemiBold: ['Playfair SemiBold SemiCondensed'],
+        Playfair_SemiBold: ['Playfair SemiBold SemiExpanded'],
         DM_Serif_FontBold: ['DM Serif Font'],
         Tangerine_Regular: ['Tangerine Regular'],
         Roboto_Bold_Italic: ['Roboto Bold Italic'],

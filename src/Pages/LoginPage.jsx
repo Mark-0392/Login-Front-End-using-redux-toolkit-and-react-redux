@@ -46,7 +46,7 @@ function LoginPage() {
     <div className="flex justify-center items-center min-h-screen max-lg:bg-night bg-cover bg-center px-2 lg:bg-loginPage">
       <Form
         method="post"
-        className="w-full max-w-[500px]  h-96 shadow-lg rounded-lg bg-black/60 border-white/10 px-4 flex flex-col justify-center gap-2 lg:bg-white lg:border-pink-700"
+        className="w-full max-w-[500px]  h-[420px] shadow-lg rounded-lg bg-black/60 border-white/10 px-4 flex flex-col justify-center gap-2  lg:bg-white lg:border-pink-700"
       >
         <h2 className="text-2xl font-Playfair_SemiBold font-semibold  text-white lg:text-pink-600 lg:text-4xl text-center ">
           Sign In
@@ -76,6 +76,12 @@ function LoginPage() {
           Forgot Password ?
         </Link>
         <SubmitButtonCommon text="Log In" navigationState="Logging in..." />
+        <p className="text-center h-8 text-white text-base md:text-lg lg:text-black mt-2 ">
+          Haven't registered yet?{' '}
+          <span className="text-blue-500 text-base md:text-xl font-bold font-LeckerLi_One_Regular">
+            <Link to={'/'}>Click here to Sign Up</Link>
+          </span>
+        </p>
       </Form>
     </div>
   )

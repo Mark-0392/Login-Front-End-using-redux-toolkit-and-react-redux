@@ -22,9 +22,9 @@
     src: url('/Ysabeau Fonts/YsabeauSC-Regular.woff') format('woff');
   }
   @font-face {
-    font-family: 'Playfair SemiBold SemiCondensed';
+    font-family: 'Playfair SemiBold SemiExpanded';
     font-weight: 600;
-    src: url('/Playfair semibold Font/Playfair_9pt_SemiCondensed-SemiBold.woff2')
+    src: url('/Playfair semibold/Playfair_9pt_SemiExpanded-SemiBold.woff')
       format('woff');
   }
   @font-face {
