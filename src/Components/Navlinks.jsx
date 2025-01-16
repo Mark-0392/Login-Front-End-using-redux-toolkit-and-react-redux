@@ -30,6 +30,11 @@ const navlinks = [
     url: 'newsLetter',
     text: 'News Letter',
   },
+  {
+    id: 4,
+    url: 'credits',
+    text: 'Credits',
+  },
 ]
 
 const links_With_Icon = [

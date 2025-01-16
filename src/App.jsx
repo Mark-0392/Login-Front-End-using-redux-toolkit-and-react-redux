@@ -15,6 +15,7 @@ import {
   Error,
   About,
   NewsLetter,
+  Credits,
 } from './Pages'
 
 // importing components
@@ -86,6 +87,11 @@ const router = createBrowserRouter([
       {
         path: 'newsLetter',
         element: <NewsLetter />,
+        errorElement: <ErrorElement />,
+      },
+      {
+        path: 'credits',
+        element: <Credits />,
         errorElement: <ErrorElement />,
       },
       {
