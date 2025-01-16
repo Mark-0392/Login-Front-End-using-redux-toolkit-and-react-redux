@@ -13,7 +13,7 @@ export const action = async ({ request }) => {
     return redirect(response.data)
   } catch (error) {
     const errorMsg = error?.response?.data?.msg
-    toast.error(errorMsg)
+    toast.error('Better luck next time')
     return null
   }
 }
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
           <span> Please enter your email address</span>
         </h2>
         {/* <p></p> */}
-        <div className="flex flex-col gap-5 md:border px-2 py-2 md:py-5 lg:px-4 hover:shadow-lg hover:shadow-indigo-500/50">
+        <div className="flex flex-col gap-5 md:border px-2 py-2 md:py-5 lg:px-4 hover:shadow-lg hover:shadow-indigo-500/50 rounded-md">
           <div className="lg:w-[500px]  ">
             <CommonFormLayout
               type="email"

@@ -52,7 +52,7 @@ function RegisterPage() {
               label="Password"
               type="password"
               name="password"
-              placeholder="set your password"
+              placeholder="Set your password"
             />
             {/* <div className=" flex items-center">
               <input

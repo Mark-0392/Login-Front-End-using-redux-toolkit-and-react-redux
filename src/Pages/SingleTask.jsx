@@ -31,7 +31,7 @@ const Single_Task = () => {
   return (
     <div className="max-lg:h-[calc(100%-40px)] h-[calc(100%-56px)] grid place-items-center bg-slate-800 lg:bg-white grid-rows-2">
       <div className="w-11/12 flex flex-col text-center max-w-xl gap-y-4 lg:border-2 shadow-lg lg:shadow-md lg:shadow-cyan-500/50 shadow-cyan-500/50 py-4 self-end ">
-        <h2 className="text-base font-normal text-white lg:text-indigo-600 lg:text-2xl text-center drop-shadow-md">
+        <h2 className="lg:font-semibold text-base font-normal text-white lg:text-indigo-600 lg:text-2xl text-center drop-shadow-md">
           Your Task Details
         </h2>
         <h4 className="lg:mt-2 text-base font-semibold text-white lg:text-slate-500 lg:font-serif lg:text-lg drop-shadow-md">

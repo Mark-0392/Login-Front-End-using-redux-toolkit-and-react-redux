@@ -42,7 +42,7 @@ const ResetPassword = () => {
     <div className="min-h-screen flex justify-center items-center bg-slate-800 lg:bg-white">
       <Form
         method="POST"
-        className="max-w-xl flex flex-1 flex-col gap-y-4 px-2 py-4 border border-indigo-500 mx-2 lg:mx-0 hover:shadow-md hover:shadow-purple-400 duration-700"
+        className="max-w-xl flex flex-1 flex-col gap-y-4 px-2 py-4 border border-indigo-500 mx-2 lg:mx-0 hover:shadow-md hover:shadow-purple-400 duration-700 rounded-md"
       >
         <h2 className="text-base font-semibold text-white lg:text-black lg:text-lg text-center">
           Reset Your Password
