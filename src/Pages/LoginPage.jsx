@@ -24,21 +24,6 @@ export const action =
       toast.error(error_Message)
       return null
     }
-    // try {
-    //   const response = await BaseURL.post('api/v1/auth/login', data)
-    //   store.dispatch(loginUser(response.data))
-
-    //   toast.success('You have successfully logged in')
-    //   return redirect('/dashboard')
-    // } catch (error) {
-    //   console.log(error)
-
-    //   const error_Message = error.response.data.message
-    //   toast.error(error_Message)
-    //   return null
-    // }
-
-    // return 'something'
   }
 
 function LoginPage() {
@@ -57,7 +42,6 @@ function LoginPage() {
             type="email"
             name="email"
             placeholder="Enter your email address"
-            defaultValue="susan@hello.com"
           />
         </div>
         <div className="mb-4">
@@ -66,7 +50,6 @@ function LoginPage() {
             type="password"
             name="password"
             placeholder="Enter your password"
-            defaultValue="success"
           />
         </div>
         <Link

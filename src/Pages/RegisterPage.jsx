@@ -39,7 +39,6 @@ function RegisterPage() {
               type="text"
               name="name"
               placeholder="Enter your name here"
-              defaultValue="Susan"
               required
             />
 
@@ -48,14 +47,12 @@ function RegisterPage() {
               type="email"
               name="email"
               placeholder="Enter your email address here"
-              defaultValue="susan@hello.com"
             />
             <CommonFormLayout
               label="Password"
               type="password"
               name="password"
               placeholder="set your password"
-              defaultValue="success"
             />
             {/* <div className=" flex items-center">
               <input
