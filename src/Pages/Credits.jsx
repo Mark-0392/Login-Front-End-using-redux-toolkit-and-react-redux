@@ -6,7 +6,7 @@ import Register from '../../src/assets/flat-mountains.png'
 
 const Credits = () => {
   return (
-    <div className="grid place-items-center max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] grid-rows-1 bg-teal-500 text-black">
+    <div className="grid place-items-center max-sm:h-[calc(100%-40px)] md:h-[calc(100%-44px)] lg:h-[calc(100%-52px)] grid-rows-1 bg-teal-500 text-black max-sm:px-2">
       <div className="w-full max-w-xl mx-auto px-2 flex flex-col gap-y-4 text-center border py-2 rounded-md border-slate-950 bg-black">
         <h1 className="text-white font-Tangerine_Regular text-2xl md:text-4xl">
           I would like to thank everyone who helped me achieve this with their

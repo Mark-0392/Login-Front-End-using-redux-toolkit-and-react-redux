@@ -1,7 +1,13 @@
 import { NavLink, redirect, useNavigate } from 'react-router-dom'
-import { FaHome, FaEnvelopeOpenText, FaUserEdit } from 'react-icons/fa'
+import {
+  FaHome,
+  FaEnvelopeOpenText,
+  FaUserEdit,
+  FaHandshake,
+} from 'react-icons/fa'
 import { FcAbout } from 'react-icons/fc'
 import { PiSignOutBold, PiPasswordBold } from 'react-icons/pi'
+
 import { BsInfoCircleFill } from 'react-icons/bs'
 import { logoutUser } from '../../Features/Users/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -58,12 +64,18 @@ const links_With_Icon = [
   },
   {
     id: 4,
+    url: 'credits',
+    text: 'Credits',
+    icon: <FaHandshake size={25} />,
+  },
+  {
+    id: 5,
     url: 'user/updateUserDetails',
     text: 'Edit/update Your Details',
     icon: <FaUserEdit size={20} />,
   },
   {
-    id: 5,
+    id: 6,
     url: 'user/updateUserPassword',
     text: 'Edit/update Your Password',
     icon: <PiPasswordBold size={20} />,
@@ -126,7 +138,7 @@ export const Navlink_With_Icon = () => {
             >
               <NavLink
                 to={url}
-                className={`flex gap-x-2 w-10/12 items-center text-sm text-white font-semibold px-2 capitalize h-12 rounded-r-full  transition-all ease-in-out duration-500 ${
+                className={`flex gap-x-2 w-10/12 items-center text-base text-white font-semibold px-2 capitalize h-12 rounded-r-full  transition-all ease-in-out duration-500 ${
                   isSelectedText === text
                     ? 'bg-red-500 text-white ml-2'
                     : 'text-white'
